@@ -30,12 +30,15 @@ The script automatically installs required packages if they're missing:
 
 ## Installation
 
-### Option 1: Run from Source
-1. Download the script and required files
-2. Run directly with Python:
-   ```bash
-   python hatskit.py
-   ```
+### Option 1: Download and Run (Recommended)
+1. **Download required files:**
+   - `hatskit.py` (for Python) OR `HATSKit.exe` (for Windows)
+   - `skeleton.zip` 
+   - `components.json`
+2. **Place all files in the same folder**
+3. **Run the tool:**
+   - Python: `python hatskit.py`
+   - Windows: Double-click `HATSKit.exe`
 
 ### Option 2: Build Executable with PyInstaller
 1. Install PyInstaller:
