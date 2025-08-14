@@ -61,7 +61,7 @@ CACHE_FILE = 'hatskit_cache.json'
 LAST_BUILD_FILE = 'last_build.json'
 DOWNLOAD_DIR = 'temp_downloads'
 BUILD_DIR = 'build'
-OUTPUT_FILENAME_BASE = 'HATS_Pack'
+OUTPUT_FILENAME_BASE = 'HATS'
 SUMMARY_FILENAME = 'HATS_Pack_Contents.txt'  # Kept for reference, but overridden in create_pack_summary
 CACHE_DURATION = timedelta(hours=12)
 
