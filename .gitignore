@@ -1,0 +1,48 @@
+# Directories to ignore
+venv/
+build/
+dist/
+unused scripts/
+documents/
+
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyInstaller-specific ignores
+*.spec
+*.manifest
+*.exe
+*.zip
+*.toc
+*.pyz
+warn-*.txt
+xref-*.html
+
+# Cache and temporary files
+*.cache
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# IDE-specific files (if you use any)
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Other potential ignores
+*.egg-info/
+*.egg
+.env

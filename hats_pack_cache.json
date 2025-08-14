@@ -1,0 +1,206 @@
+{
+    "meganukebmp/Switch_90DNS_tester@latest|Switch_90DNS_tester.nro": {
+        "url": "https://github.com/meganukebmp/Switch_90DNS_tester/releases/download/v1.0.4/Switch_90DNS_tester.nro",
+        "version": "v1.0.4",
+        "timestamp": "2025-08-13T22:54:00.901418+00:00",
+        "etag": "W/\"da12b4b2645098085c9ecd7111a03557bc9d7cb6845fd6e4927a21bb1306dc1d\""
+    },
+    "HamletDuFromage/aio-switch-updater@latest|AIO-Switch-Updater.zip": {
+        "url": "https://github.com/HamletDuFromage/aio-switch-updater/releases/download/2.23.2/aio-switch-updater.zip",
+        "version": "2.23.2",
+        "timestamp": "2025-08-13T22:54:01.412732+00:00",
+        "etag": "W/\"1a743684626bc596cff3079d1dad1530469af1989b12fe8d6f5df21cd3f7ceca\""
+    },
+    "fortheusers/hb-appstore@latest|appstore.nro": {
+        "url": "https://github.com/fortheusers/hb-appstore/releases/download/v2.3.2/appstore.nro",
+        "version": "v2.3.2",
+        "timestamp": "2025-08-13T22:54:02.002576+00:00",
+        "etag": "W/\"9f69695f5e6157feb856afa1171c349f906abc3791b183b38a13942c0c54a233\""
+    },
+    "Atmosphere-NX/Atmosphere@latest|atmosphere-*.zip": {
+        "url": "https://github.com/Atmosphere-NX/Atmosphere/releases/download/1.9.3/atmosphere-1.9.3-master-8b8e4438e%2Bhbl-2.4.4%2Bhbmenu-3.6.0.zip",
+        "version": "1.9.3",
+        "timestamp": "2025-08-13T22:54:02.575335+00:00",
+        "etag": "W/\"04bd89b37b74bb9e53a24558ae77697a0374a080bf8407126f7ea7446d749c5b\""
+    },
+    "rashevskyv/dbi@658|DBI.nro": {
+        "url": "https://github.com/rashevskyv/dbi/releases/download/658/DBI.nro",
+        "version": "658",
+        "timestamp": "2025-08-13T22:54:03.166118+00:00",
+        "etag": "W/\"fa43f3326a63f06a17762299404022bc77232fad596fc256e7c449603b15352a\""
+    },
+    "rashevskyv/dbi@latest|DBI.nro": {
+        "url": "https://github.com/rashevskyv/dbi/releases/download/796ru/DBI.nro",
+        "version": "796ru",
+        "timestamp": "2025-08-13T22:54:03.641622+00:00",
+        "etag": "W/\"08d10d280e64f8f3341507049ac594f5d9b207ed951c942a90f09f18f04f98d9\""
+    },
+    "znxDomain/DNS-MITM_Manager@latest|DNS-MITM_Manager.zip": {
+        "url": "https://github.com/znxDomain/DNS-MITM_Manager/releases/download/0.2.0/DNS-MITM_Manager.zip",
+        "version": "0.2.0",
+        "timestamp": "2025-08-13T22:54:04.262051+00:00",
+        "etag": "W/\"3aa2f83b150451133f66cbdb464b9adf870f7cdb053643e0aacee00809ac5a28\""
+    },
+    "proferabg/EdiZon-Overlay@latest|ovlEdiZon.ovl": {
+        "url": "https://github.com/proferabg/EdiZon-Overlay/releases/download/v1.0.10/ovlEdiZon.ovl",
+        "version": "v1.0.10",
+        "timestamp": "2025-08-13T22:54:04.778515+00:00",
+        "etag": "W/\"0fbbcac5faf6ce9a019bbfbd103493667b67d754a77293beabde7c0ca97816d3\""
+    },
+    "tomvita/EdiZon-SE@latest|EdiZon.zip": {
+        "url": "https://github.com/tomvita/EdiZon-SE/releases/download/3.8.37/EdiZon.zip",
+        "version": "3.8.37",
+        "timestamp": "2025-08-13T22:54:05.318642+00:00",
+        "etag": "W/\"a4e6ac8d65115b464708c35b4b0326dc99bd7154f3c533b1381a31e975feb081\""
+    },
+    "mtheall/ftpd@latest|ftpd.nro": {
+        "url": "https://github.com/mtheall/ftpd/releases/download/v3.2.1/ftpd.nro",
+        "version": "v3.2.1",
+        "timestamp": "2025-08-13T22:54:06.043553+00:00",
+        "etag": "W/\"c4c4343853b621c72bfa384a7ee5c10002b7671687816c8b5108b52d5b84418e\""
+    },
+    "XorTroll/Goldleaf@latest|Goldleaf.nro": {
+        "url": "https://github.com/XorTroll/Goldleaf/releases/download/1.1.1/Goldleaf.nro",
+        "version": "1.1.1",
+        "timestamp": "2025-08-13T22:54:06.563444+00:00",
+        "etag": "W/\"ece38a24f07b581ffefb22e5dcdee434699b7c94dc0dcb7807e823b8511a0c7c\""
+    },
+    "CTCaer/hekate@latest|hekate_ctcaer_*.zip": {
+        "url": "https://github.com/CTCaer/hekate/releases/download/v6.3.1/hekate_ctcaer_6.3.1_Nyx_1.7.0.zip",
+        "version": "v6.3.1",
+        "timestamp": "2025-08-13T22:54:07.541264+00:00",
+        "etag": "W/\"2c96f79c471aabb2dd0de5b2c810fdd58cbef5cc597db186dab9fd26b82083d9\""
+    },
+    "J-D-K/JKSV@latest|JKSV.nro": {
+        "url": "https://github.com/J-D-K/JKSV/releases/download/11/05/2024/JKSV.nro",
+        "version": "11/05/2024",
+        "timestamp": "2025-08-13T22:54:08.576934+00:00",
+        "etag": "W/\"8a07cc4f38cbd849695eb0e291fbefe942831d39aab8f8dd71854f87d81ec339\""
+    },
+    "NexlifyHub/AccountSync@latest|AccountSync-*.zip": {
+        "url": "https://github.com/NexlifyHub/AccountSync/releases/download/2.1.0/AccountSync-v2.0.1.zip",
+        "version": "2.1.0",
+        "timestamp": "2025-08-13T22:54:09.216562+00:00",
+        "etag": "W/\"dd9d5c33a4376285245093ec8b2e28ec1c63e99fdfa2c7a36ff49d2b63dc0b8c\""
+    },
+    "THZoria/Lockpick_RCMaster@latest|Lockpick_RCM.bin": {
+        "url": "https://github.com/THZoria/Lockpick_RCMaster/releases/download/1.9.15/Lockpick_RCM.bin",
+        "version": "1.9.15",
+        "timestamp": "2025-08-13T22:54:09.660656+00:00",
+        "etag": "W/\"3429bce1814e667c1cd85cd749671c1466025e0d08323e04d4d883936a5006a0\""
+    },
+    "ndeadly/MissionControl@latest|MissionControl-*.zip": {
+        "url": "https://github.com/ndeadly/MissionControl/releases/download/v0.13.4/MissionControl-0.13.4-master-2af29931.zip",
+        "version": "v0.13.4",
+        "timestamp": "2025-08-13T22:54:10.193608+00:00",
+        "etag": "W/\"e82c756185efe1c48ff3ce09ae7c26ddda20610eb2846073ee2b786c4483a27c\""
+    },
+    "ppkantorski/nx-ovlloader@latest|nx-ovlloader.zip": {
+        "url": "https://github.com/ppkantorski/nx-ovlloader/releases/download/v1.1.1/nx-ovlloader.zip",
+        "version": "v1.1.1",
+        "timestamp": "2025-08-13T22:54:10.905158+00:00",
+        "etag": "W/\"d370b9426f72420817347f5d5c9ddd781d88385cba0853a391fcf2e4e9f359d3\""
+    },
+    "joel16/NX-Shell@latest|NX-Shell.nro": {
+        "url": "https://github.com/joel16/NX-Shell/releases/download/4.01/NX-Shell.nro",
+        "version": "4.01",
+        "timestamp": "2025-08-13T22:54:11.421730+00:00",
+        "etag": "W/\"aa96bf9ec3f7033a10adff13370cb7fd3e6f7ad38d60cb5455285efee2d897f2\""
+    },
+    "CaramelDunes/prodinfo_gen@latest|prodinfo_gen.bin": {
+        "url": "https://github.com/CaramelDunes/prodinfo_gen/releases/download/v1.1.0/prodinfo_gen.bin",
+        "version": "v1.1.0",
+        "timestamp": "2025-08-13T22:54:12.272261+00:00",
+        "etag": "W/\"049b5e5ad8790a1fd5df86dc9d4367b2c80002a869954e9c066cbee0be4a764c\""
+    },
+    "eradicatinglove/Quick-Reboot@latest|Quick-Reboot.nro": {
+        "url": "https://github.com/eradicatinglove/Quick-Reboot/releases/download/v2.1.0/Quick-Reboot.nro",
+        "version": "v2.1.0",
+        "timestamp": "2025-08-13T22:54:12.778605+00:00",
+        "etag": "W/\"e922f9a7e798d9c8b963fe7d4351e3c7189fc48fb983d5fce4125b1b62c63215\""
+    },
+    "eradicatinglove/Quick-Reboot@latest|Quick-Reboot.ovl": {
+        "url": "https://github.com/eradicatinglove/Quick-Reboot/releases/download/v2.1.0/Quick-Reboot.ovl",
+        "version": "v2.1.0",
+        "timestamp": "2025-08-13T22:54:13.486439+00:00",
+        "etag": "W/\"e922f9a7e798d9c8b963fe7d4351e3c7189fc48fb983d5fce4125b1b62c63215\""
+    },
+    "nedex/QuickNTP@latest|quickntp-*.zip": {
+        "url": "https://github.com/nedex/QuickNTP/releases/download/1.5.1/quickntp-1.5.1.zip",
+        "version": "1.5.1",
+        "timestamp": "2025-08-13T22:54:14.013706+00:00",
+        "etag": "W/\"171e6bec86dcae405d02ce8ac26b7e5554336088ccfa817031782559340e4b2e\""
+    },
+    "masagrator/SaltyNX@latest|SaltyNX-*.zip": {
+        "url": "https://github.com/masagrator/SaltyNX/releases/download/1.4.5/SaltyNX-1.4.5.zip",
+        "version": "1.4.5",
+        "timestamp": "2025-08-13T22:54:14.502206+00:00",
+        "etag": "W/\"9e307917c5c73f4bc224aae4110729fd266a68da352e19da5b6482b8eb6e7371\""
+    },
+    "NexlifyHub/SystemEnhancer@latest|SystemEnhancer-*.zip": {
+        "url": "https://github.com/NexlifyHub/SystemEnhancer/releases/download/1.9.3/SystemEnhancer-1.9.3.zip",
+        "version": "1.9.3",
+        "timestamp": "2025-08-13T22:54:15.023829+00:00",
+        "etag": "W/\"f8078d5c85879d540d80634f28ceba8dea915402497e7d1b50462e3faa1e4220\""
+    },
+    "ITotalJustice/sphaira@latest|sphaira.zip": {
+        "url": "https://github.com/ITotalJustice/sphaira/releases/download/0.13.3/sphaira.zip",
+        "version": "0.13.3",
+        "timestamp": "2025-08-13T22:54:15.464986+00:00",
+        "etag": "W/\"efa5bc5373afd95e0063829355e9bbedd6c143837c468a5a335360c9fcd59449\""
+    },
+    "masagrator/Status-Monitor-Overlay@latest|Status-Monitor-Overlay.zip": {
+        "url": "https://github.com/masagrator/Status-Monitor-Overlay/releases/download/1.2.0/Status-Monitor-Overlay.zip",
+        "version": "1.2.0",
+        "timestamp": "2025-08-13T22:54:16.003346+00:00",
+        "etag": "W/\"9f4f08c5ac721e96a69bcbb069045d0aee988c769842f4b58e58a64a8cfed26b\""
+    },
+    "retronx-team/sys-clk@latest|sys-clk-*.zip": {
+        "url": "https://github.com/retronx-team/sys-clk/releases/download/2.0.1/sys-clk-2.0.1.zip",
+        "version": "2.0.1",
+        "timestamp": "2025-08-13T22:54:16.753410+00:00",
+        "etag": "W/\"9668bcc264e6a19045064873a0dc43a055585874f6f30b32b648854c12f393c7\""
+    },
+    "impeeza/sys-patch@latest|sys-patch.zip": {
+        "url": "https://github.com/impeeza/sys-patch/releases/download/v1.5.6/sys-patch.zip",
+        "version": "v1.5.6",
+        "timestamp": "2025-08-13T22:54:17.259467+00:00",
+        "etag": "W/\"b3184199faac69260c67dbcfe6201f83097e0618291eac7bdce4ae27d500833b\""
+    },
+    "ppkantorski/ovl-sysmodules@latest|ovlSysmodules.ovl": {
+        "url": "https://github.com/ppkantorski/ovl-sysmodules/releases/download/v1.3.7/ovlSysmodules.ovl",
+        "version": "v1.3.7",
+        "timestamp": "2025-08-13T22:54:17.753445+00:00",
+        "etag": "W/\"9e0adf0b7774bf4b327a790975dac7bd48f761f0d8233cef6af05033d197396f\""
+    },
+    "suchmememanyskill/TegraExplorer@latest|TegraExplorer.bin": {
+        "url": "https://github.com/suchmememanyskill/TegraExplorer/releases/download/4.2.0/TegraExplorer.bin",
+        "version": "4.2.0",
+        "timestamp": "2025-08-13T22:54:18.319433+00:00",
+        "etag": "W/\"050df1022c2d30a1577695f6bbfb445c8c35f374e753046619986f168c487f04\""
+    },
+    "NexlifyHub/PackageManager@latest|PackageManager-*-v*.zip": {
+        "url": "https://github.com/NexlifyHub/PackageManager/releases/download/20.0/PackageManager-20.0-v2.zip",
+        "version": "20.0",
+        "timestamp": "2025-08-13T22:54:18.942347+00:00",
+        "etag": "W/\"5ef5af1aeaee64640ab6209b46a226639f827522cd196c995626b85d3d8ed71a\""
+    },
+    "NexlifyHub/PackageManager@latest|PackageManager-*-v*.nsp": {
+        "url": "https://github.com/NexlifyHub/PackageManager/releases/download/20.0/PackageManager-20.0-v2.nsp",
+        "version": "20.0",
+        "timestamp": "2025-08-13T22:54:19.426871+00:00",
+        "etag": "W/\"5ef5af1aeaee64640ab6209b46a226639f827522cd196c995626b85d3d8ed71a\""
+    },
+    "mrdude2478/Tinwoo-Release@latest|Tinwoo-Installer.zip": {
+        "url": "https://github.com/mrdude2478/Tinwoo-Release/releases/download/1.0.27/Tinwoo-Installer.zip",
+        "version": "1.0.27",
+        "timestamp": "2025-08-13T22:54:19.982317+00:00",
+        "etag": "W/\"aeef58ac99312725561eadcf6b75ecf7e68da9370464b69b91caf795fd5ceefb\""
+    },
+    "ppkantorski/Ultrahand-Overlay@latest|ovlmenu.ovl": {
+        "url": "https://github.com/ppkantorski/Ultrahand-Overlay/releases/download/v2.0.0/ovlmenu.ovl",
+        "version": "v2.0.0",
+        "timestamp": "2025-08-13T22:54:20.447955+00:00",
+        "etag": "W/\"9443eea4143cb1d516ea75c2da044b4be16b4c341d69a2eb4283bb389843fa1e\""
+    }
+}

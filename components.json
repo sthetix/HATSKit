@@ -1,0 +1,720 @@
+{
+  "90dns_tester": {
+    "asset_info": {
+      "etag": "W/\"f61bab58996d846056253bceac1866a2e6e63338330900f843103d8d117174ac\"",
+      "timestamp": "2025-08-13T02:53:01.543833",
+      "url": "https://github.com/meganukebmp/Switch_90DNS_tester/releases/download/v1.0.4/Switch_90DNS_tester.nro",
+      "version": "v1.0.4"
+    },
+    "asset_pattern": "Switch_90DNS_tester.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Tests if 90DNS is configured correctly.",
+    "name": "Switch 90DNS Tester",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/Switch_90DNS_tester.nro"
+      }
+    ],
+    "repo": "meganukebmp/Switch_90DNS_tester",
+    "source_type": "github_release"
+  },
+  "aio_updater": {
+    "asset_info": {
+      "etag": "W/\"bfcd92a1123a7635671e7f74ac4f2629d22543f904e74fd1b8e33f0aa58fb637\"",
+      "timestamp": "2025-08-13T02:53:02.071959",
+      "url": "https://github.com/HamletDuFromage/aio-switch-updater/releases/download/2.23.2/aio-switch-updater.zip",
+      "version": "2.23.2"
+    },
+    "asset_pattern": "AIO-Switch-Updater.zip",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Update everything from your Switch.",
+    "name": "AIO-Switch-Updater",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "HamletDuFromage/aio-switch-updater",
+    "source_type": "github_release"
+  },
+  "appstore": {
+    "asset_info": {
+      "etag": "W/\"1fa0e68026bf2546ce466846fb037a0ec5eb2d69a922993be11d992062d84cf3\"",
+      "timestamp": "2025-08-13T02:53:02.601555",
+      "url": "https://github.com/fortheusers/hb-appstore/releases/download/v2.3.2/appstore.nro",
+      "version": "v2.3.2"
+    },
+    "asset_pattern": "appstore.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Download new homebrew apps from your Switch.",
+    "name": "Homebrew Appstore",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/appstore/appstore.nro"
+      }
+    ],
+    "repo": "fortheusers/hb-appstore",
+    "source_type": "github_release"
+  },
+  "atmosphere": {
+    "asset_info": {
+      "etag": "W/\"26bd26c60df32ee6ce232ceeb37134bbd2e2518e1cc42f73e0fc36c82e379407\"",
+      "timestamp": "2025-08-13T02:53:03.186837",
+      "url": "https://github.com/Atmosphere-NX/Atmosphere/releases/download/1.9.3/atmosphere-1.9.3-master-8b8e4438e%2Bhbl-2.4.4%2Bhbmenu-3.6.0.zip",
+      "version": "1.9.3"
+    },
+    "asset_pattern": "atmosphere-*.zip",
+    "category": "Essential",
+    "default": false,
+    "description": "Core CFW. Essential.",
+    "name": "Atmosphere",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "Atmosphere-NX/Atmosphere",
+    "source_type": "github_release"
+  },
+  "dbi_eng": {
+    "asset_info": {
+      "etag": "W/\"15c2b7261e16255866f0b942daabf70e56acb56d40caf3a0b337dc6af394e9ff\"",
+      "timestamp": "2025-08-13T02:53:03.845220",
+      "url": "https://github.com/rashevskyv/dbi/releases/download/658/DBI.nro",
+      "version": "658"
+    },
+    "asset_pattern": "DBI.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "MTP file manager and installer.",
+    "name": "DBI ENG",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/DBI_ENG/DBI.nro"
+      }
+    ],
+    "repo": "rashevskyv/dbi",
+    "source_type": "github_release",
+    "tag": "658"
+  },
+  "dbi_ru": {
+    "asset_info": {
+      "etag": "W/\"4f9bc85f15032fd265a6b57498689435999ae0035b9bc825a830968ccc3d3c98\"",
+      "timestamp": "2025-08-13T02:53:04.288051",
+      "url": "https://github.com/rashevskyv/dbi/releases/download/796ru/DBI.nro",
+      "version": "796ru"
+    },
+    "asset_pattern": "DBI.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "MTP file manager and installer.",
+    "name": "DBI RU",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/DBI_RU/DBI.nro"
+      }
+    ],
+    "repo": "rashevskyv/dbi",
+    "source_type": "github_release"
+  },
+  "dns_mitm_manager": {
+    "asset_info": {
+      "etag": "W/\"d24eb3ac52197169f11bfe640282903ef82259353898ab05de29f66b301338c2\"",
+      "timestamp": "2025-08-13T02:53:04.876003",
+      "url": "https://github.com/znxDomain/DNS-MITM_Manager/releases/download/0.2.0/DNS-MITM_Manager.zip",
+      "version": "0.2.0"
+    },
+    "asset_pattern": "DNS-MITM_Manager.zip",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Tesla overlay for managing DNS redirection.",
+    "name": "DNS MITM Manager",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "znxDomain/DNS-MITM_Manager",
+    "source_type": "github_release"
+  },
+  "edizon_overlay": {
+    "asset_info": {
+      "etag": "W/\"6cb9a597d0bb201289ea46aee6b2ca37f68e084a8a0d2ceedd1ad8ccbd504da6\"",
+      "timestamp": "2025-08-13T02:53:05.332551",
+      "url": "https://github.com/proferabg/EdiZon-Overlay/releases/download/v1.0.10/ovlEdiZon.ovl",
+      "version": "v1.0.10"
+    },
+    "asset_pattern": "ovlEdiZon.ovl",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Tesla overlay for Edizon.",
+    "name": "Edizon Overlay",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/.overlays/ovlEdiZon.ovl"
+      }
+    ],
+    "repo": "proferabg/EdiZon-Overlay",
+    "source_type": "github_release"
+  },
+  "edizon_se": {
+    "asset_info": {
+      "etag": "W/\"7753f50989b6ba32e4a50264359f44f8ba838a2ce14ab2de959a0c1bf86be39a\"",
+      "timestamp": "2025-08-13T02:53:05.812644",
+      "url": "https://github.com/tomvita/EdiZon-SE/releases/download/3.8.37/EdiZon.zip",
+      "version": "3.8.37"
+    },
+    "asset_pattern": "EdiZon.zip",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Save file editor.",
+    "name": "Edizon SE",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "tomvita/EdiZon-SE",
+    "source_type": "github_release"
+  },
+  "ftpd": {
+    "asset_info": {
+      "etag": "W/\"89e37d327bb2e6f5acffd6c8c931ff2ca2d08bf7053b203ebb031da2803cec4e\"",
+      "timestamp": "2025-08-13T02:53:06.551072",
+      "url": "https://github.com/mtheall/ftpd/releases/download/v3.2.1/ftpd.nro",
+      "version": "v3.2.1"
+    },
+    "asset_pattern": "ftpd.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "FTP server for your Switch.",
+    "name": "FTPD Pro",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/ftpd/ftpd.nro"
+      }
+    ],
+    "repo": "mtheall/ftpd",
+    "source_type": "github_release"
+  },
+  "goldleaf": {
+    "asset_info": {
+      "etag": "W/\"490d61dab161080479c3c40a5815bcf891a87a45fc0d52934d69281a35640903\"",
+      "timestamp": "2025-08-13T02:53:07.117728",
+      "url": "https://github.com/XorTroll/Goldleaf/releases/download/1.1.1/Goldleaf.nro",
+      "version": "1.1.1"
+    },
+    "asset_pattern": "Goldleaf.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Multipurpose homebrew tool.",
+    "name": "Goldleaf",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/Goldleaf.nro"
+      }
+    ],
+    "repo": "XorTroll/Goldleaf",
+    "source_type": "github_release"
+  },
+  "hekate": {
+    "asset_info": {
+      "etag": "W/\"36b77326a8a364f0b44fef9901eac789872c2dabd7102238e40a368f9dee18c2\"",
+      "timestamp": "2025-08-13T02:53:07.726891",
+      "url": "https://github.com/CTCaer/hekate/releases/download/v6.3.1/hekate_ctcaer_6.3.1_Nyx_1.7.0.zip",
+      "version": "v6.3.1"
+    },
+    "asset_pattern": "hekate_ctcaer_*.zip",
+    "category": "Essential",
+    "default": false,
+    "description": "Bootloader and tools. Essential.",
+    "name": "Hekate + Nyx",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      },
+      {
+        "action": "find_and_rename",
+        "source_file_pattern": "hekate_ctcaer_*.bin",
+        "target_filename": "payload.bin",
+        "target_path": "/"
+      },
+      {
+        "action": "delete_file",
+        "path": "/hekate_ctcaer_*.bin"
+      },
+      {
+        "action": "delete_file",
+        "path": "/bootloader/hekate_ctcaer_*.bin"
+      }
+    ],
+    "repo": "CTCaer/hekate",
+    "source_type": "github_release"
+  },
+  "jksv": {
+    "asset_info": {
+      "etag": "W/\"01aa77b8c08f28da63974828174f6c08b54c0add7bcd0ed8edcee0027fff9960\"",
+      "timestamp": "2025-08-13T02:53:08.408361",
+      "url": "https://github.com/J-D-K/JKSV/releases/download/11/05/2024/JKSV.nro",
+      "version": "11/05/2024"
+    },
+    "asset_pattern": "JKSV.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Save file backup and restore tool.",
+    "name": "JKSV",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/JKSV.nro"
+      }
+    ],
+    "repo": "J-D-K/JKSV",
+    "source_type": "github_release"
+  },
+  "linkalho": {
+    "asset_info": {
+      "etag": "W/\"fb5d39b2b0ad24695f045605d99032bf9163d444f076c980be7c910995277c4c\"",
+      "timestamp": "2025-08-13T02:53:09.047619",
+      "url": "https://github.com/NexlifyHub/AccountSync/releases/download/2.1.0/AccountSync-v2.0.1.zip",
+      "version": "2.1.0"
+    },
+    "asset_pattern": "AccountSync-*.zip",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Link your Nintendo Account offline.",
+    "name": "Linkalho",
+    "processing_steps": [
+      {
+        "action": "find_and_copy",
+        "source_file_pattern": "*.nro",
+        "target_path": "/switch/"
+      }
+    ],
+    "repo": "NexlifyHub/AccountSync",
+    "source_type": "github_release"
+  },
+  "lockpick_rcm": {
+    "asset_info": {
+      "etag": "W/\"627c464fa10ce6fa22d23408724bc7794015d8c03c2773ec4e3b9f38353802b6\"",
+      "timestamp": "2025-08-13T02:53:09.546796",
+      "url": "https://github.com/THZoria/Lockpick_RCMaster/releases/download/1.9.15/Lockpick_RCM.bin",
+      "version": "1.9.15"
+    },
+    "asset_pattern": "Lockpick_RCM.bin",
+    "category": "Payloads",
+    "default": false,
+    "description": "Tool to dump your console's unique keys.",
+    "name": "Lockpick_RCM",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/bootloader/payloads/Lockpick_RCM.bin"
+      }
+    ],
+    "repo": "THZoria/Lockpick_RCMaster",
+    "source_type": "github_release"
+  },
+  "mission_control": {
+    "asset_info": {
+      "etag": "W/\"e4c9b58db95cfa7e567ac22ed3002117d3b2fccbd25ed95afbd7273b96c0f134\"",
+      "timestamp": "2025-08-13T02:53:10.120635",
+      "url": "https://github.com/ndeadly/MissionControl/releases/download/v0.13.4/MissionControl-0.13.4-master-2af29931.zip",
+      "version": "v0.13.4"
+    },
+    "asset_pattern": "MissionControl-*.zip",
+    "category": "Patches",
+    "default": false,
+    "description": "Use other console controllers on your Switch.",
+    "name": "MissionControl",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "ndeadly/MissionControl",
+    "source_type": "github_release"
+  },
+  "nx-ovlloader": {
+    "asset_info": {
+      "etag": "W/\"effccf935ed38c66dbca5c72db58f29fffb1d2518db79627678863a9b203cdcd\"",
+      "timestamp": "2025-08-13T02:53:10.753384",
+      "url": "https://github.com/ppkantorski/nx-ovlloader/releases/download/v1.1.1/nx-ovlloader.zip",
+      "version": "v1.1.1"
+    },
+    "asset_pattern": "nx-ovlloader.zip",
+    "category": "Patches",
+    "default": false,
+    "description": "Host process for loading Switch overlay OVLs (NROs)",
+    "name": "nx-ovlloader",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "ppkantorski/nx-ovlloader",
+    "source_type": "github_release"
+  },
+  "nx_shell": {
+    "asset_info": {
+      "etag": "W/\"af415c9aafe6904c8ecabbff53a08f9fe319aaa81a7a65450c6210a064b1353c\"",
+      "timestamp": "2025-08-13T02:53:11.431132",
+      "url": "https://github.com/joel16/NX-Shell/releases/download/4.01/NX-Shell.nro",
+      "version": "4.01"
+    },
+    "asset_pattern": "NX-Shell.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "A multipurpose file manager.",
+    "name": "NX-Shell",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/NX-Shell.nro"
+      }
+    ],
+    "repo": "joel16/NX-Shell",
+    "source_type": "github_release"
+  },
+  "prodinfo_gen": {
+    "asset_info": {
+      "etag": "W/\"67871bbf29eb99e0ea9bfd633bfa4b28ad11081b242ed6aba0c2aeb866915f24\"",
+      "timestamp": "2025-08-13T02:53:11.988015",
+      "url": "https://github.com/CaramelDunes/prodinfo_gen/releases/download/v1.1.0/prodinfo_gen.bin",
+      "version": "v1.1.0"
+    },
+    "asset_pattern": "prodinfo_gen.bin",
+    "category": "Payloads",
+    "default": false,
+    "description": "A payload to generate prod.info.",
+    "name": "Prodinfo_gen",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/bootloader/payloads/prodinfo_gen.bin"
+      }
+    ],
+    "repo": "CaramelDunes/prodinfo_gen",
+    "source_type": "github_release"
+  },
+  "quick_reboot_app": {
+    "asset_info": {
+      "etag": "W/\"db682a95b06e9016dee32f56964de3a5f19ceff2c776b3d88f69a98d65809f03\"",
+      "timestamp": "2025-08-13T02:53:12.514400",
+      "url": "https://github.com/eradicatinglove/Quick-Reboot/releases/download/v2.1.0/Quick-Reboot.nro",
+      "version": "v2.1.0"
+    },
+    "asset_pattern": "Quick-Reboot.nro",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Reboot to payloads from the homebrew menu.",
+    "name": "Quick-Reboot (App)",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/Quick-Reboot.nro"
+      }
+    ],
+    "repo": "eradicatinglove/Quick-Reboot",
+    "source_type": "github_release"
+  },
+  "quick_reboot_ovl": {
+    "asset_info": {
+      "etag": "W/\"db682a95b06e9016dee32f56964de3a5f19ceff2c776b3d88f69a98d65809f03\"",
+      "timestamp": "2025-08-13T02:53:12.996920",
+      "url": "https://github.com/eradicatinglove/Quick-Reboot/releases/download/v2.1.0/Quick-Reboot.ovl",
+      "version": "v2.1.0"
+    },
+    "asset_pattern": "Quick-Reboot.ovl",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Reboot to payloads from the Tesla.",
+    "name": "Quick-Reboot overlay",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/.overlays/Quick-Reboot.ovl"
+      }
+    ],
+    "repo": "eradicatinglove/Quick-Reboot",
+    "source_type": "github_release"
+  },
+  "quickntp": {
+    "asset_info": {
+      "etag": "W/\"70a7cc71e10ff051cedad578c018989d21bef9b418e4da045822f081edf43b0e\"",
+      "timestamp": "2025-08-13T02:53:13.503227",
+      "url": "https://github.com/nedex/QuickNTP/releases/download/1.5.1/quickntp-1.5.1.zip",
+      "version": "1.5.1"
+    },
+    "asset_pattern": "quickntp-*.zip",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Tesla overlay to sync system clock with an NTP server.",
+    "name": "QuickNTP",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "nedex/QuickNTP",
+    "source_type": "github_release"
+  },
+  "saltynx": {
+    "asset_info": {
+      "etag": "W/\"5d51c10995d7c7768dabe2260965dfc941ae1326a36eb3f7adf38db55c4250e2\"",
+      "timestamp": "2025-08-13T02:53:14.076241",
+      "url": "https://github.com/masagrator/SaltyNX/releases/download/1.4.5/SaltyNX-1.4.5.zip",
+      "version": "1.4.5"
+    },
+    "asset_pattern": "SaltyNX-*.zip",
+    "category": "Patches",
+    "default": false,
+    "description": "A salt-based plugin loader for mods.",
+    "name": "SaltyNX",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "masagrator/SaltyNX",
+    "source_type": "github_release"
+  },
+  "sigpatches": {
+    "asset_info": {
+      "etag": "W/\"d30938be4c3229099fd388d1ac18926b06be8016eb70e214391b3d6ed4fb1a6a\"",
+      "timestamp": "2025-08-13T02:53:14.579342",
+      "url": "https://github.com/NexlifyHub/SystemEnhancer/releases/download/1.9.3/SystemEnhancer-1.9.3.zip",
+      "version": "1.9.3"
+    },
+    "asset_pattern": "SystemEnhancer-*.zip",
+    "category": "Essential",
+    "default": false,
+    "description": "Enables unofficial applications.",
+    "name": "Sigpatches",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "NexlifyHub/SystemEnhancer",
+    "source_type": "github_release"
+  },
+  "sphaira": {
+    "asset_info": {
+      "etag": "W/\"14138f0cadaeb76488ed2b950ad5ae8daeb70967f3af576fbab166d0e5d2423b\"",
+      "timestamp": "2025-08-13T02:53:15.241490",
+      "url": "https://github.com/ITotalJustice/sphaira/releases/download/0.13.3/sphaira.zip",
+      "version": "0.13.3"
+    },
+    "asset_pattern": "sphaira.zip",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "A minimal reimplementation of the barrel.",
+    "name": "Sphaira",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "ITotalJustice/sphaira",
+    "source_type": "github_release"
+  },
+  "status_monitor_overlay": {
+    "asset_info": {
+      "etag": "W/\"b9b0545a7469864dafcc777fabc16299ec3cd5fa3464cfccd22f32fc85a62eb8\"",
+      "timestamp": "2025-08-13T02:53:15.792787",
+      "url": "https://github.com/masagrator/Status-Monitor-Overlay/releases/download/1.2.0/Status-Monitor-Overlay.zip",
+      "version": "1.2.0"
+    },
+    "asset_pattern": "Status-Monitor-Overlay.zip",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Displays FPS, temps, and clock speeds.",
+    "name": "Status Monitor Overlay",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "masagrator/Status-Monitor-Overlay",
+    "source_type": "github_release"
+  },
+  "sys_clk": {
+    "asset_info": {
+      "etag": "W/\"d2d653b9b5a9a72fe0dc123d7bdd5af571f25b20a96a2634c666a7f7a2657336\"",
+      "timestamp": "2025-08-13T02:53:16.366066",
+      "url": "https://github.com/retronx-team/sys-clk/releases/download/2.0.1/sys-clk-2.0.1.zip",
+      "version": "2.0.1"
+    },
+    "asset_pattern": "sys-clk-*.zip",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Sysmodule for overclocking.",
+    "name": "sys-clk",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      },
+      {
+        "action": "delete_file",
+        "path": "/readme.md"
+      }
+    ],
+    "repo": "retronx-team/sys-clk",
+    "source_type": "github_release"
+  },
+  "sys_patch": {
+    "asset_info": {
+      "etag": "W/\"5ed0147374939ace73df0621558efe67f4ca47a6ad30c1b394cf68dee6444414\"",
+      "timestamp": "2025-08-13T02:53:16.923359",
+      "url": "https://github.com/impeeza/sys-patch/releases/download/v1.5.6/sys-patch.zip",
+      "version": "v1.5.6"
+    },
+    "asset_pattern": "sys-patch.zip",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "A sysmodule to apply runtime code patches.",
+    "name": "Sys-patch",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "impeeza/sys-patch",
+    "source_type": "github_release"
+  },
+  "sysmodules_overlay": {
+    "asset_info": {
+      "etag": "W/\"6c2745d13acc2e7fee6c424ab3cb88118fc3653a3280ac93f8ee0273d8a5aca4\"",
+      "timestamp": "2025-08-13T02:53:18.448925",
+      "url": "https://github.com/ppkantorski/ovl-sysmodules/releases/download/v1.3.7/ovlSysmodules.ovl",
+      "version": "v1.3.7"
+    },
+    "asset_pattern": "ovlSysmodules.ovl",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "Tesla overlay for managing sysmodules.",
+    "name": "Sysmodules Overlay",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/.overlays/ovlSysmodules.ovl"
+      }
+    ],
+    "repo": "ppkantorski/ovl-sysmodules",
+    "source_type": "github_release"
+  },
+  "tegraexplorer": {
+    "asset_info": {
+      "etag": "W/\"6c75ef413dae60ea3a0108918b9c0e9d828d1f3513448b21523d7e2843559938\"",
+      "timestamp": "2025-08-13T02:53:18.901240",
+      "url": "https://github.com/suchmememanyskill/TegraExplorer/releases/download/4.2.0/TegraExplorer.bin",
+      "version": "4.2.0"
+    },
+    "asset_pattern": "TegraExplorer.bin",
+    "category": "Payloads",
+    "default": false,
+    "description": "A payload-based file explorer.",
+    "name": "TegraExplorer",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/bootloader/payloads/TegraExplorer.bin"
+      }
+    ],
+    "repo": "suchmememanyskill/TegraExplorer",
+    "source_type": "github_release"
+  },
+  "tinfoil_applet": {
+    "asset_info": {
+      "etag": "W/\"9609c53df68ddfad5b9ece776fe6a42d46f0b69a09ced4c240da80577944e0dc\"",
+      "timestamp": "2025-08-13T02:53:19.433535",
+      "url": "https://github.com/NexlifyHub/PackageManager/releases/download/20.0/PackageManager-20.0-v2.zip",
+      "version": "20.0"
+    },
+    "asset_pattern": "PackageManager-*-v*.zip",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Title manager. Uses less memory.",
+    "name": "Tinfoil Applet version",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "NexlifyHub/PackageManager",
+    "source_type": "github_release"
+  },
+  "tinfoil_nsp": {
+    "asset_info": {
+      "etag": "W/\"9609c53df68ddfad5b9ece776fe6a42d46f0b69a09ced4c240da80577944e0dc\"",
+      "timestamp": "2025-08-13T02:53:19.973037",
+      "url": "https://github.com/NexlifyHub/PackageManager/releases/download/20.0/PackageManager-20.0-v2.nsp",
+      "version": "20.0"
+    },
+    "asset_pattern": "PackageManager-*-v*.nsp",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "Title manager self-installer.",
+    "name": "Tinfoil NSP version",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/tinfoil/nsp/tinfoil.nsp"
+      }
+    ],
+    "repo": "NexlifyHub/PackageManager",
+    "source_type": "github_release"
+  },
+  "tinwoo": {
+    "asset_info": {
+      "etag": "W/\"50a13f42b09421b070ec137fb863d9fadd8341e940e5d20849234b798d82b947\"",
+      "timestamp": "2025-08-13T02:53:20.426879",
+      "url": "https://github.com/mrdude2478/Tinwoo-Release/releases/download/1.0.27/Tinwoo-Installer.zip",
+      "version": "1.0.27"
+    },
+    "asset_pattern": "Tinwoo-Installer.zip",
+    "category": "Homebrew Apps",
+    "default": false,
+    "description": "An open-source NSP installer.",
+    "name": "Tinwoo Installer",
+    "processing_steps": [
+      {
+        "action": "unzip_to_root"
+      }
+    ],
+    "repo": "mrdude2478/Tinwoo-Release",
+    "source_type": "github_release"
+  },
+  "ultrahand_overlay": {
+    "asset_info": {
+      "etag": "W/\"443ede4ba2e3ad405ea1554199041b2e756f373a2739af0c31b7f1202c76cf7f\"",
+      "timestamp": "2025-08-13T02:53:20.884979",
+      "url": "https://github.com/ppkantorski/Ultrahand-Overlay/releases/download/v2.0.0/ovlmenu.ovl",
+      "version": "v2.0.0"
+    },
+    "asset_pattern": "ovlmenu.ovl",
+    "category": "Tesla Overlays",
+    "default": false,
+    "description": "A new Tesla menu reimplementation.",
+    "name": "Ultrahand Overlay",
+    "processing_steps": [
+      {
+        "action": "copy_file",
+        "target_path": "/switch/.overlays/ovlmenu.ovl"
+      }
+    ],
+    "repo": "ppkantorski/Ultrahand-Overlay",
+    "source_type": "github_release"
+  }
+}
