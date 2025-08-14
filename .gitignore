@@ -17,7 +17,6 @@ pip-delete-this-directory.txt
 # PyInstaller-specific ignores
 *.spec
 *.manifest
-*.exe
 *.zip
 *.toc
 *.pyz
@@ -46,3 +45,6 @@ Thumbs.db
 *.egg-info/
 *.egg
 .env
+
+# Local version directory (keep off GitHub)
+versions/

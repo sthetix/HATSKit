@@ -35,7 +35,7 @@ from rich.panel import Panel
 from rich.table import Table
 
 # --- Script Version ---
-VERSION = "1.0.1"  # Updated for smart versioning
+VERSION = "1.0.1"  # Updated to 1.0.1
 
 # --- Rich Console ---
 console = Console()
@@ -293,7 +293,7 @@ def create_pack_summary(user_choices, categories, output_path, script_version, c
     
     content = []
     content.append("===================================")
-    content.append(" HATSKit Pack - Custom Build Contents ")
+    content.append(" HATS Pack - Custom Build Contents ")
     content.append("===================================")
     content.append(f"\nGenerated on: {wib_time.strftime('%Y-%m-%d %H:%M:%S WIB')}")
     content.append(f"Builder Version: {script_version}")
@@ -347,7 +347,7 @@ def view_components(components):
     if not components:
         console.print("[yellow]No components to display.[/]")
         return
-    table = Table(title="[bold blue]HATSKit Components[/]")
+    table = Table(title="[bold blue]HATS Components[/]")
     table.add_column("ID", style="cyan", no_wrap=True)
     table.add_column("Name", style="magenta")
     table.add_column("Category", style="green")
@@ -548,7 +548,7 @@ def edit_components_menu():
         return
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        console.print(Panel(f"[bold white]HATSKit Component Editor[/]", 
+        console.print(Panel(f"[bold white]HATS Component Editor[/]", 
                            style="bold magenta", subtitle="Manage your components.json", 
                            subtitle_align="right"))
         choice = questionary.select(
@@ -582,6 +582,23 @@ def edit_components_menu():
         elif choice == "Return to Main Menu Without Saving" or choice is None:
             return
 
+# --- New Function: View Component Details ---
+def view_component_details(all_components, selected_ids):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    console.print(Panel("[bold white]Component Details[/]", style="bold cyan", subtitle="Full component information"))
+    table = Table(title="[bold blue]Available Components[/]")
+    table.add_column("Name", style="magenta")
+    table.add_column("Version", style="cyan")
+    table.add_column("Category", style="green")
+    table.add_column("Description", style="white")
+    for id, comp in sorted(all_components.items()):
+        version = comp.get('asset_info', {}).get('version', 'N/A')
+        description = comp.get('description', 'No description')
+        marker = "[bold green]✓[/]" if id in selected_ids else ""
+        table.add_row(f"{comp['name']} {marker}", version, comp['category'], description)
+    console.print(table)
+    questionary.press_any_key_to_continue("Press any key to return to selection...", style=custom_style).ask()
+
 def run_builder():
     global github_pat  # Access the global PAT variable
     base_path = get_base_path()
@@ -592,7 +609,7 @@ def run_builder():
 
     while True:  # Loop to allow restarting the builder
         os.system('cls' if os.name == 'nt' else 'clear')
-        console.print(Panel(f"[bold white]HATSKit Pack Builder[/]", 
+        console.print(Panel(f"[bold white]HATS Pack Builder v{VERSION}[/]", 
                            style="bold blue", subtitle="Build your own HATS pack", 
                            subtitle_align="right"))
 
@@ -640,28 +657,39 @@ def run_builder():
             components_in_category = {k: v for k, v in all_components.items() if v['category'] == category}
             for id, comp in sorted(components_in_category.items()):
                 version = comp.get('asset_info', {}).get('version', 'N/A')
-                title = f"{comp['name']} ({version})"
+                description = comp.get('description', 'No description')
+                # Truncate to 40 characters for brevity
+                short_description = (description[:37] + '...') if len(description) > 40 else description
+                title = f"{comp['name']} ({version}) - {short_description}"
                 choices.append(questionary.Choice(title=title, value=id, checked=comp.get('default', False)))
             choices.append(questionary.Separator(" "))
         choices.append(questionary.Separator("--- OPTIONS ---"))
+        choices.append(questionary.Choice(title="View Component Details", value="view_details"))
         choices.append(questionary.Choice(title="Return to Main Menu", value="return_to_main"))
 
-        selected_ids = questionary.checkbox(
-            "Select the components you want to include:",
-            choices=choices,
-            style=custom_style,
-            instruction="(Use arrow keys to move, <space> to select, <a> to toggle all, <i> to invert, <Enter> to confirm)",
-            validate=lambda selections: (
-                True if selections or "return_to_main" in selections
-                else "You must select at least one component or choose 'Return to Main Menu'."
-            )
-        ).ask()
+        while True:
+            selected_ids = questionary.checkbox(
+                "Select the components you want to include:",
+                choices=choices,
+                style=custom_style,
+                instruction="(Use arrow keys to move, <space> to select, <a> to toggle all, <i> to invert, <Enter> to confirm)",
+                validate=lambda selections: (
+                    True if selections or "return_to_main" in selections or "view_details" in selections
+                    else "You must select at least one component or choose an option."
+                )
+            ).ask()
 
-        if selected_ids is None or "return_to_main" in selected_ids:
-            console.print("[yellow]Returning to main menu.[/]")
-            return
+            if selected_ids is None or "return_to_main" in selected_ids:
+                console.print("[yellow]Returning to main menu.[/]")
+                return
+            if "view_details" in selected_ids:
+                # Remove view_details from selections to avoid processing it as a component
+                selected_ids.remove("view_details")
+                view_component_details(all_components, selected_ids)
+                continue
+            break
 
-        user_choices = {id: all_components[id] for id in selected_ids}
+        user_choices = {id: all_components[id] for id in selected_ids if id not in ["view_details", "return_to_main"]}
 
         # Compute content hash for the selected components
         content_hash = compute_content_hash(user_choices)
@@ -680,19 +708,19 @@ def run_builder():
                 choices=[
                     "Skip and return to main menu",
                     "Rebuild anyway",
-                    "Return to HATSKit Builder"
+                    "Return to HATS Builder"
                 ],
                 style=custom_style
             ).ask()
             if choice == "Skip and return to main menu":
                 console.print("[yellow]Build skipped. Returning to main menu.[/]")
                 return
-            elif choice == "Return to HATSKit Builder":
-                console.print("[yellow]Returning to HATSKit Builder.[/]")
+            elif choice == "Return to HATS Builder":
+                console.print("[yellow]Returning to HATS Builder.[/]")
                 continue
 
         os.system('cls' if os.name == 'nt' else 'clear')
-        summary_table = Table(title="[bold green]Your Custom HATSKit Pack[/]")
+        summary_table = Table(title="[bold green]Your Custom HATS Pack[/]")
         summary_table.add_column("Category", style="blue")
         summary_table.add_column("Component", style="magenta")
         summary_table.add_column("Version", style="cyan")
@@ -712,12 +740,12 @@ def run_builder():
             "What would you like to do?",
             choices=[
                 "Proceed with this selection",
-                "Return to HATSKit Builder"
+                "Return to HATS Builder"
             ],
             style=custom_style
         ).ask()
-        if confirm_choice == "Return to HATSKit Builder":
-            console.print("[yellow]Returning to HATSKit Builder.[/]")
+        if confirm_choice == "Return to HATS Builder":
+            console.print("[yellow]Returning to HATS Builder.[/]")
             continue
         elif confirm_choice != "Proceed with this selection":
             console.print("[yellow]Returning to main menu.[/]")
@@ -787,7 +815,7 @@ def main():
                            style="bold blue", subtitle="Build or manage your HATS pack", 
                            subtitle_align="right"))
         choices = [
-            "Load the HATSKit Pack Builder",
+            "Load the HATS Pack Builder",
             "Load the Component Editor",
             "Clear Cache",
             questionary.Separator()
@@ -800,9 +828,9 @@ def main():
             choices=choices,
             style=custom_style
         ).ask()
-        if choice == "Load the HATSKit Pack Builder":
+        if choice == "Load the HATS Pack Builder":
             os.system('cls' if os.name == 'nt' else 'clear')
-            console.print(Panel(f"[bold white]HATSKit Pack Builder v{VERSION}[/]", 
+            console.print(Panel(f"[bold white]HATS Pack Builder v{VERSION}[/]", 
                                style="bold blue", subtitle="Build your own HATS pack", 
                                subtitle_align="right"))
             run_builder()
