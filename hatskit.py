@@ -35,7 +35,7 @@ from rich.panel import Panel
 from rich.table import Table
 
 # --- Script Version ---
-VERSION = "1.0.1"  # Updated to 1.0.1
+VERSION = "1.0.1"  # Kept at 1.0.1 as requested
 
 # --- Rich Console ---
 console = Console()
@@ -62,7 +62,7 @@ LAST_BUILD_FILE = 'last_build.json'
 DOWNLOAD_DIR = 'temp_downloads'
 BUILD_DIR = 'build'
 OUTPUT_FILENAME_BASE = 'HATS_Pack'
-SUMMARY_FILENAME = 'HATS_Pack_Contents.txt'
+SUMMARY_FILENAME = 'HATS_Pack_Contents.txt'  # Kept for reference, but overridden in create_pack_summary
 CACHE_DURATION = timedelta(hours=12)
 
 # --- Global PAT Storage ---
@@ -286,9 +286,11 @@ def create_final_zip(build_dir, output_filename):
     shutil.make_archive(output_filename.replace('.zip', ''), 'zip', build_dir)
     console.print(f"[bold green]Successfully created {output_filename}[/]")
 
-def create_pack_summary(user_choices, categories, output_path, script_version, content_hash):
+def create_pack_summary(user_choices, categories, output_filename, script_version, content_hash):
     base_path = get_base_path()
-    summary_path = os.path.join(base_path, SUMMARY_FILENAME)
+    # Use the same name as the ZIP file but with .txt extension
+    summary_filename = os.path.basename(output_filename).replace('.zip', '.txt')
+    summary_path = os.path.join(base_path, BUILD_DIR, summary_filename)  # Save to build directory
     wib_time = datetime.now(timezone.utc) + timedelta(hours=7)
     
     content = []
@@ -309,9 +311,10 @@ def create_pack_summary(user_choices, categories, output_path, script_version, c
             content.append("")
             
     try:
+        os.makedirs(os.path.dirname(summary_path), exist_ok=True)  # Ensure build directory exists
         with open(summary_path, 'w', encoding='utf-8') as f:
             f.write("\n".join(content))
-        console.print(f"[bold green]Successfully created summary file: {SUMMARY_FILENAME}[/]")
+        console.print(f"[bold green]Successfully created summary file: {summary_filename}[/]")
     except IOError as e:
         console.print(f"[bold red]ERROR:[/] Could not create summary file: {e}")
 
@@ -784,8 +787,9 @@ def run_builder():
             else:
                 console.print(f"  > [yellow]Skipping component as no version/URL info was found.[/]")
 
+        # Create summary file before zipping to include it in the ZIP
+        create_pack_summary(user_choices, categories, output_filename, VERSION, content_hash)
         create_final_zip(temp_build_path, output_path)
-        create_pack_summary(user_choices, categories, output_path, VERSION, content_hash)
         save_last_build({'content_hash': content_hash, 'filename': output_filename, 'timestamp': timestamp})
         
         if os.path.exists(temp_download_path):
