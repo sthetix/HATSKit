@@ -352,7 +352,6 @@ def process_component(component, downloaded_file_path, build_dir):
                             console.print(f"     - {get_text('find_and_rename', old_name=os.path.basename(member.filename), new_name=target_filename)}")
                             break
             elif action == 'delete_file':
-                # FIXED: Now reads 'target_path' and can delete folders.
                 path_pattern = os.path.join(build_dir, step['target_path'].strip('/\\'))
                 items_to_delete = glob.glob(path_pattern)
                 for item in items_to_delete:
@@ -464,13 +463,12 @@ def view_components(components):
     console.print(table)
 
 def get_processing_step():
-    # FIXED: Use Choice objects for clearer display name vs. internal value
     choices = [
-        "unzip_to_root", 
-        "copy_file", 
-        "unzip_folder", 
-        "find_and_copy", 
-        "find_and_rename", 
+        "unzip_to_root",
+        "copy_file",
+        "unzip_folder",
+        "find_and_copy",
+        "find_and_rename",
         questionary.Choice(title="Delete File or Folder", value="delete_file")
     ]
     action = questionary.select(
@@ -478,11 +476,10 @@ def get_processing_step():
         choices=choices,
         style=custom_style
     ).ask()
-    
-    if not action: return None # Handle user cancelling
+
+    if not action: return None
     step = {"action": action}
-    
-    # FIXED: Correctly and reliably check for actions that need a target path
+
     actions_needing_path = ["copy_file", "unzip_folder", "find_and_copy", "find_and_rename", "delete_file"]
     if action in actions_needing_path:
         prompt_text = get_text('target_path_prompt_delete') if action == 'delete_file' else get_text('target_path_prompt')
@@ -492,18 +489,17 @@ def get_processing_step():
         step['source_file_pattern'] = questionary.text(get_text('source_pattern_prompt'), style=custom_style).ask()
     if action == "find_and_rename":
         step['target_filename'] = questionary.text(get_text('target_filename_prompt'), style=custom_style).ask()
-        
+
     return step
 
 def edit_processing_step(step):
     edited_step = step.copy()
-    # FIXED: Use Choice objects for clearer display name vs. internal value
     choices = [
-        "unzip_to_root", 
-        "copy_file", 
-        "unzip_folder", 
-        "find_and_copy", 
-        "find_and_rename", 
+        "unzip_to_root",
+        "copy_file",
+        "unzip_folder",
+        "find_and_copy",
+        "find_and_rename",
         questionary.Choice(title="Delete File or Folder", value="delete_file")
     ]
     edited_step['action'] = questionary.select(
@@ -513,7 +509,7 @@ def edit_processing_step(step):
         style=custom_style
     ).ask()
 
-    if not edited_step['action']: return step # If user cancels, return original step
+    if not edited_step['action']: return step
 
     actions_needing_path = ["copy_file", "unzip_folder", "find_and_copy", "find_and_rename", "delete_file"]
     if edited_step['action'] in actions_needing_path:
@@ -536,8 +532,7 @@ def edit_processing_step(step):
             default=edited_step.get('target_filename', ''),
             style=custom_style
         ).ask()
-        
-    # Clean up step to only include relevant keys
+
     final_step = {'action': edited_step['action']}
     if edited_step.get('target_path'):
         final_step['target_path'] = edited_step['target_path']
@@ -571,14 +566,14 @@ def add_component(components):
     new_comp['category'] = questionary.select(get_text('category_prompt'), choices=["Essential", "Homebrew Apps", "Patches", "Tesla Overlays", "Payloads"], style=custom_style).ask()
     new_comp['default'] = questionary.confirm(get_text('default_prompt'), style=custom_style).ask()
     new_comp['source_type'] = questionary.select(get_text('source_type_prompt'), choices=["github_release", "direct_url"], style=custom_style).ask()
-    
+
     if new_comp['source_type'] == 'github_release':
         new_comp['repo'] = questionary.text(get_text('repo_prompt'), style=custom_style).ask()
         if questionary.confirm(get_text('specific_tag_prompt'), style=custom_style).ask():
             new_comp['tag'] = questionary.text(get_text('tag_prompt'), style=custom_style).ask()
     else:
         new_comp['url'] = questionary.text(get_text('url_prompt'), style=custom_style).ask()
-        
+
     new_comp['asset_pattern'] = questionary.text(get_text('asset_pattern_prompt'), style=custom_style).ask()
     steps = []
     while questionary.confirm(get_text('add_step_prompt'), style=custom_style).ask():
@@ -614,28 +609,27 @@ def edit_component(components):
     console.print(f"[bold]--- {get_text('editing_component', name=comp['name'])} ---[/]")
     console.print(f"[dim]{get_text('press_enter')}[/dim]")
     current_lang = config.get('language', 'en')
-    
+
     comp['name'] = questionary.text(get_text('name_prompt'), default=str(comp['name']), style=custom_style).ask()
     comp['descriptions'][current_lang] = questionary.text(get_text('description_prompt'), default=get_component_description(comp, current_lang), style=custom_style).ask() or get_component_description(comp, current_lang)
     comp['category'] = questionary.text(get_text('category_prompt'), default=str(comp['category']), style=custom_style).ask()
     comp['default'] = questionary.confirm(get_text('default_prompt'), default=comp.get('default', False), style=custom_style).ask()
     comp['source_type'] = questionary.select(get_text('source_type_prompt'), choices=["github_release", "direct_url"], default=comp.get('source_type', 'github_release'), style=custom_style).ask()
-    
-    # FIXED: Clean up old keys when changing source type
+
     if comp['source_type'] == 'github_release':
-        comp.pop('url', None) # Remove url key if it exists
+        comp.pop('url', None)
         comp['repo'] = questionary.text(get_text('repo_prompt'), default=str(comp.get('repo', '')), style=custom_style).ask()
         if questionary.confirm(get_text('specific_tag_prompt'), default=bool(comp.get('tag')), style=custom_style).ask():
             comp['tag'] = questionary.text(get_text('tag_prompt'), default=str(comp.get('tag', '')), style=custom_style).ask()
         else:
             comp.pop('tag', None)
-    else: # direct_url
-        comp.pop('repo', None) # Remove repo key
-        comp.pop('tag', None) # Remove tag key
+    else:
+        comp.pop('repo', None)
+        comp.pop('tag', None)
         comp['url'] = questionary.text(get_text('url_prompt'), default=str(comp.get('url', '')), style=custom_style).ask()
-        
+
     comp['asset_pattern'] = questionary.text(get_text('asset_pattern_prompt'), default=str(comp['asset_pattern']), style=custom_style).ask()
-    
+
     if questionary.confirm(get_text('edit_steps_prompt'), style=custom_style).ask():
         steps = comp.get('processing_steps', [])
         while True:
@@ -687,7 +681,7 @@ def edit_component(components):
             elif action == get_text('finish_steps') or action is None:
                 break
         comp['processing_steps'] = steps
-    
+
     summary_table = Table(title=f"[bold yellow]{get_text('review_changes', id=comp_id_to_edit)}[/]")
     summary_table.add_column(get_text('table_field'), style="cyan")
     summary_table.add_column(get_text('table_old_value'), style="red")
@@ -698,7 +692,7 @@ def edit_component(components):
         new_val = format_value_for_display(comp.get(key), current_lang if key == 'descriptions' else None)
         if old_val != new_val:
             summary_table.add_row(key, old_val, f"[bold]{new_val}[/]")
-    
+
     console.print(summary_table)
     if questionary.confirm(get_text('save_changes_prompt'), style=custom_style).ask():
         components[comp_id_to_edit] = comp
@@ -739,11 +733,11 @@ def edit_components_menu():
             console.print(f"[dim]{get_text('backup_created', backup_file=backup_file)}[/]")
         except IOError as e:
             console.print(f"[yellow]WARNING:[/] Could not create backup: {e}")
-    
+
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        console.print(Panel(f"[bold white]{get_text('component_editor_title')}[/]", 
-                           style="bold magenta", subtitle=get_text('component_editor_subtitle'), 
+        console.print(Panel(f"[bold white]{get_text('component_editor_title')}[/]",
+                           style="bold magenta", subtitle=get_text('component_editor_subtitle'),
                            subtitle_align="right"))
         choice = questionary.select(
             get_text('editor_action_prompt'),
@@ -808,7 +802,7 @@ def run_builder():
 
         if github_pat is None:
             console.print(f"[dim]{get_text('pat_info')}[/dim]")
-            console.print(f"[dim yellow]{get_text('pat_save_warning')}[/dim]")
+            console.print(f"[dim]{get_text('pat_save_warning')}[/dim]") # FIXED: Removed yellow color to fix tag mismatch
             pat_input = questionary.password(
                 get_text('pat_prompt'), qmark="🔑", style=custom_style
             ).ask()
@@ -886,8 +880,7 @@ def run_builder():
         last_build = load_last_build()
         last_components = last_build.get('components', {})
         changes = []
-        
-        # Check for updated and newly added components
+
         for comp_id, comp_data in sorted(user_choices.items()):
             current_version = comp_data.get('asset_info', {}).get('version', 'N/A')
             last_comp_info = last_components.get(comp_id)
@@ -895,8 +888,7 @@ def run_builder():
                 changes.append(f"* {comp_data['name']}: Newly Added ({current_version})")
             elif last_comp_info.get('version') != current_version:
                 changes.append(f"* {comp_data['name']}: Updated from {last_comp_info.get('version')} to {current_version}")
-        
-        # Check for removed components
+
         for comp_id, last_comp_info in sorted(last_components.items()):
             if comp_id not in user_choices:
                 changes.append(f"* {last_comp_info.get('name', comp_id)}: Removed (was {last_comp_info.get('version')})")
@@ -983,7 +975,7 @@ def run_builder():
 
         create_pack_summary(user_choices, categories, output_filename, VERSION, content_hash, changes)
         create_final_zip(temp_build_path, output_path)
-        
+
         new_build_info = {
             'content_hash': content_hash,
             'filename': output_filename,
