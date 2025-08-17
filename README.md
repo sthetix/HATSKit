@@ -4,7 +4,7 @@
   <img src="preview.png" alt="HATSKit Preview" />
 </div>
 
-A powerful Python tool for building custom HATS (Homebrew App & Tool Store) packs for Nintendo Switch homebrew. This tool allows you to create personalized collections of homebrew applications, patches, overlays, and payloads with an intuitive menu-driven interface.
+A powerful Python tool for personalizing the HATS (Homebrew App & Tool Store) pack for the Nintendo Switch. This tool uses the standard HATS release as a foundation, allowing you to easily manage and curate your own collection of homebrew applications, patches, overlays, and payloads with an intuitive menu-driven interface.
 
 ## Features
 
