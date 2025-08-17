@@ -352,12 +352,16 @@ def process_component(component, downloaded_file_path, build_dir):
                             console.print(f"     - {get_text('find_and_rename', old_name=os.path.basename(member.filename), new_name=target_filename)}")
                             break
             elif action == 'delete_file':
-                path_pattern = os.path.join(build_dir, step['path'].strip('/\\'))
-                files_to_delete = glob.glob(path_pattern)
-                for f in files_to_delete:
-                    if os.path.isfile(f):
-                        os.remove(f)
-                        console.print(f"     - {get_text('delete_file', filename=os.path.basename(f))}")
+                # FIXED: Now reads 'target_path' and can delete folders.
+                path_pattern = os.path.join(build_dir, step['target_path'].strip('/\\'))
+                items_to_delete = glob.glob(path_pattern)
+                for item in items_to_delete:
+                    if os.path.isfile(item):
+                        os.remove(item)
+                        console.print(f"     - {get_text('delete_file', filename=os.path.basename(item))}")
+                    elif os.path.isdir(item):
+                        shutil.rmtree(item)
+                        console.print(f"     - Deleted folder: {os.path.basename(item)}")
         except Exception as e:
             console.print(f"     - [bold red]ERROR[/] {get_text('processing_error', action=action, error=e)}")
 
@@ -404,8 +408,7 @@ def create_pack_summary(user_choices, categories, output_filename, script_versio
     except IOError as e:
         console.print(f"[bold red]ERROR:[/] {get_text('summary_error', error=e)}")
 
-# --- JSON Editor Functions (omitted for brevity, no changes were made) ---
-# ... (all functions from load_components to edit_components_menu are unchanged)
+# --- JSON Editor Functions ---
 def load_components():
     components_path = os.path.join(get_base_path(), COMPONENTS_FILE)
     if not os.path.exists(components_path):
@@ -443,7 +446,332 @@ def save_components(components):
     except IOError as e:
         console.print(f"[bold red]Error:[/] {get_text('components_save_error', error=e)}")
         return False
-# --- (Rest of JSON editor functions are unchanged) ---
+
+def view_components(components):
+    if not components:
+        console.print(f"[yellow]{get_text('no_components')}[/]")
+        return
+    table = Table(title=f"[bold blue]{get_text('components_title')}[/]")
+    table.add_column(get_text('table_id'), style="cyan", no_wrap=True)
+    table.add_column(get_text('table_name'), style="magenta")
+    table.add_column(get_text('table_category'), style="green")
+    table.add_column(get_text('table_repo_url'), style="yellow")
+    table.add_column(get_text('table_description'), style="white")
+    for comp_id, details in sorted(components.items()):
+        repo_or_url = details.get('repo', details.get('url', 'N/A'))
+        description = get_component_description(details, config.get('language', 'en'))
+        table.add_row(comp_id, details.get('name', 'N/A'), details.get('category', 'N/A'), repo_or_url, description)
+    console.print(table)
+
+def get_processing_step():
+    # FIXED: Use Choice objects for clearer display name vs. internal value
+    choices = [
+        "unzip_to_root", 
+        "copy_file", 
+        "unzip_folder", 
+        "find_and_copy", 
+        "find_and_rename", 
+        questionary.Choice(title="Delete File or Folder", value="delete_file")
+    ]
+    action = questionary.select(
+        get_text('action_prompt'),
+        choices=choices,
+        style=custom_style
+    ).ask()
+    
+    if not action: return None # Handle user cancelling
+    step = {"action": action}
+    
+    # FIXED: Correctly and reliably check for actions that need a target path
+    actions_needing_path = ["copy_file", "unzip_folder", "find_and_copy", "find_and_rename", "delete_file"]
+    if action in actions_needing_path:
+        prompt_text = get_text('target_path_prompt_delete') if action == 'delete_file' else get_text('target_path_prompt')
+        step['target_path'] = questionary.text(prompt_text, style=custom_style).ask()
+
+    if action in ["find_and_copy", "find_and_rename"]:
+        step['source_file_pattern'] = questionary.text(get_text('source_pattern_prompt'), style=custom_style).ask()
+    if action == "find_and_rename":
+        step['target_filename'] = questionary.text(get_text('target_filename_prompt'), style=custom_style).ask()
+        
+    return step
+
+def edit_processing_step(step):
+    edited_step = step.copy()
+    # FIXED: Use Choice objects for clearer display name vs. internal value
+    choices = [
+        "unzip_to_root", 
+        "copy_file", 
+        "unzip_folder", 
+        "find_and_copy", 
+        "find_and_rename", 
+        questionary.Choice(title="Delete File or Folder", value="delete_file")
+    ]
+    edited_step['action'] = questionary.select(
+        get_text('action_prompt'),
+        choices=choices,
+        default=edited_step.get('action', 'copy_file'),
+        style=custom_style
+    ).ask()
+
+    if not edited_step['action']: return step # If user cancels, return original step
+
+    actions_needing_path = ["copy_file", "unzip_folder", "find_and_copy", "find_and_rename", "delete_file"]
+    if edited_step['action'] in actions_needing_path:
+        prompt_text = get_text('target_path_prompt_delete') if edited_step['action'] == 'delete_file' else get_text('target_path_prompt')
+        edited_step['target_path'] = questionary.text(
+            prompt_text,
+            default=edited_step.get('target_path', ''),
+            style=custom_style
+        ).ask()
+
+    if edited_step['action'] in ["find_and_copy", "find_and_rename"]:
+        edited_step['source_file_pattern'] = questionary.text(
+            get_text('source_pattern_prompt'),
+            default=edited_step.get('source_file_pattern', ''),
+            style=custom_style
+        ).ask()
+    if edited_step['action'] == "find_and_rename":
+        edited_step['target_filename'] = questionary.text(
+            get_text('target_filename_prompt'),
+            default=edited_step.get('target_filename', ''),
+            style=custom_style
+        ).ask()
+        
+    # Clean up step to only include relevant keys
+    final_step = {'action': edited_step['action']}
+    if edited_step.get('target_path'):
+        final_step['target_path'] = edited_step['target_path']
+    if edited_step.get('source_file_pattern'):
+        final_step['source_file_pattern'] = edited_step['source_file_pattern']
+    if edited_step.get('target_filename'):
+        final_step['target_filename'] = edited_step['target_filename']
+    return final_step
+
+def format_value_for_display(value, lang_code=None):
+    if isinstance(value, dict) and lang_code:
+        return get_component_description({'descriptions': value}, lang_code)
+    elif isinstance(value, list):
+        if not value:
+            return "[]"
+        return "; ".join([f"{step.get('action', 'N/A')}: {', '.join([f'{k}={v}' for k, v in step.items() if k != 'action'])}" for step in value])
+    elif value is None:
+        return ""
+    return str(value)
+
+def add_component(components):
+    console.print(Panel(f"[bold white]{get_text('add_component_title')}[/]", style="bold green"))
+    new_id = questionary.text(get_text('new_id_prompt'), style=custom_style).ask()
+    if not new_id or new_id in components:
+        console.print(f"[bold red]Error:[/] {get_text('id_error')}")
+        return components
+    new_comp = {}
+    new_comp['name'] = questionary.text(get_text('name_prompt'), style=custom_style).ask()
+    current_lang = config.get('language', 'en')
+    new_comp['descriptions'] = {current_lang: questionary.text(get_text('description_prompt'), style=custom_style).ask() or 'No description'}
+    new_comp['category'] = questionary.select(get_text('category_prompt'), choices=["Essential", "Homebrew Apps", "Patches", "Tesla Overlays", "Payloads"], style=custom_style).ask()
+    new_comp['default'] = questionary.confirm(get_text('default_prompt'), style=custom_style).ask()
+    new_comp['source_type'] = questionary.select(get_text('source_type_prompt'), choices=["github_release", "direct_url"], style=custom_style).ask()
+    
+    if new_comp['source_type'] == 'github_release':
+        new_comp['repo'] = questionary.text(get_text('repo_prompt'), style=custom_style).ask()
+        if questionary.confirm(get_text('specific_tag_prompt'), style=custom_style).ask():
+            new_comp['tag'] = questionary.text(get_text('tag_prompt'), style=custom_style).ask()
+    else:
+        new_comp['url'] = questionary.text(get_text('url_prompt'), style=custom_style).ask()
+        
+    new_comp['asset_pattern'] = questionary.text(get_text('asset_pattern_prompt'), style=custom_style).ask()
+    steps = []
+    while questionary.confirm(get_text('add_step_prompt'), style=custom_style).ask():
+        steps.append(get_processing_step())
+    new_comp['processing_steps'] = steps
+    summary_table = Table(title=f"[bold yellow]{get_text('review_component', id=new_id)}[/]")
+    summary_table.add_column(get_text('table_field'), style="cyan")
+    summary_table.add_column(get_text('table_value'), style="white")
+    for key, value in new_comp.items():
+        if key == 'descriptions':
+            value = get_component_description(new_comp, current_lang)
+        summary_table.add_row(key, str(value))
+    console.print(summary_table)
+    if questionary.confirm(get_text('save_component_prompt'), style=custom_style).ask():
+        components[new_id] = new_comp
+        console.print(f"\n[green]{get_text('component_added', name=new_comp['name'])}[/]")
+        if save_components(components):
+            components = load_components()
+    else:
+        console.print(f"\n[yellow]{get_text('add_cancelled')}[/]")
+    return components
+
+def edit_component(components):
+    if not components:
+        console.print(f"[yellow]{get_text('no_components')}[/]")
+        return components
+    choices = [questionary.Choice(f"{details['name']} ({comp_id})", value=comp_id) for comp_id, details in sorted(components.items())]
+    comp_id_to_edit = questionary.select(get_text('edit_component_prompt'), choices=choices, style=custom_style, instruction=get_text('menu_instruction')).ask()
+    if not comp_id_to_edit:
+        return components
+    original_comp = copy.deepcopy(components[comp_id_to_edit])
+    comp = components[comp_id_to_edit].copy()
+    console.print(f"[bold]--- {get_text('editing_component', name=comp['name'])} ---[/]")
+    console.print(f"[dim]{get_text('press_enter')}[/dim]")
+    current_lang = config.get('language', 'en')
+    
+    comp['name'] = questionary.text(get_text('name_prompt'), default=str(comp['name']), style=custom_style).ask()
+    comp['descriptions'][current_lang] = questionary.text(get_text('description_prompt'), default=get_component_description(comp, current_lang), style=custom_style).ask() or get_component_description(comp, current_lang)
+    comp['category'] = questionary.text(get_text('category_prompt'), default=str(comp['category']), style=custom_style).ask()
+    comp['default'] = questionary.confirm(get_text('default_prompt'), default=comp.get('default', False), style=custom_style).ask()
+    comp['source_type'] = questionary.select(get_text('source_type_prompt'), choices=["github_release", "direct_url"], default=comp.get('source_type', 'github_release'), style=custom_style).ask()
+    
+    # FIXED: Clean up old keys when changing source type
+    if comp['source_type'] == 'github_release':
+        comp.pop('url', None) # Remove url key if it exists
+        comp['repo'] = questionary.text(get_text('repo_prompt'), default=str(comp.get('repo', '')), style=custom_style).ask()
+        if questionary.confirm(get_text('specific_tag_prompt'), default=bool(comp.get('tag')), style=custom_style).ask():
+            comp['tag'] = questionary.text(get_text('tag_prompt'), default=str(comp.get('tag', '')), style=custom_style).ask()
+        else:
+            comp.pop('tag', None)
+    else: # direct_url
+        comp.pop('repo', None) # Remove repo key
+        comp.pop('tag', None) # Remove tag key
+        comp['url'] = questionary.text(get_text('url_prompt'), default=str(comp.get('url', '')), style=custom_style).ask()
+        
+    comp['asset_pattern'] = questionary.text(get_text('asset_pattern_prompt'), default=str(comp['asset_pattern']), style=custom_style).ask()
+    
+    if questionary.confirm(get_text('edit_steps_prompt'), style=custom_style).ask():
+        steps = comp.get('processing_steps', [])
+        while True:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            console.print(Panel(f"[bold white]{get_text('steps_editor_title')}[/]", style="bold cyan", subtitle=f"{get_text('for_component', name=comp['name'])}"))
+            if not steps:
+                console.print(f"[yellow]{get_text('no_steps')}[/]")
+            else:
+                for i, step in enumerate(steps):
+                    console.print(f"  [bold cyan]{i+1}:[/] {step}")
+            action = questionary.select(
+                get_text('steps_action_prompt'),
+                choices=[
+                    get_text('add_step'),
+                    get_text('edit_step'),
+                    get_text('delete_step'),
+                    get_text('finish_steps')
+                ],
+                style=custom_style
+            ).ask()
+            if action == get_text('add_step'):
+                new_step = get_processing_step()
+                if new_step: steps.append(new_step)
+            elif action == get_text('edit_step'):
+                if not steps: continue
+                step_index_str = questionary.text(get_text('step_number_prompt', count=len(steps)), style=custom_style).ask()
+                try:
+                    step_index = int(step_index_str) - 1
+                    if 0 <= step_index < len(steps):
+                        console.print(f"Editing step {step_index+1}: {steps[step_index]}")
+                        edited = edit_processing_step(steps[step_index])
+                        if edited: steps[step_index] = edited
+                    else:
+                        console.print(f"[red]{get_text('invalid_number')}[/]")
+                except (ValueError, TypeError):
+                    console.print(f"[red]{get_text('invalid_input')}[/]")
+            elif action == get_text('delete_step'):
+                if not steps: continue
+                step_index_str = questionary.text(get_text('step_number_prompt', count=len(steps)), style=custom_style).ask()
+                try:
+                    step_index = int(step_index_str) - 1
+                    if 0 <= step_index < len(steps):
+                        deleted = steps.pop(step_index)
+                        console.print(f"{get_text('step_deleted', step=str(deleted))}")
+                    else:
+                        console.print(f"[red]{get_text('invalid_number')}[/]")
+                except (ValueError, TypeError):
+                    console.print(f"[red]{get_text('invalid_input')}[/]")
+            elif action == get_text('finish_steps') or action is None:
+                break
+        comp['processing_steps'] = steps
+    
+    summary_table = Table(title=f"[bold yellow]{get_text('review_changes', id=comp_id_to_edit)}[/]")
+    summary_table.add_column(get_text('table_field'), style="cyan")
+    summary_table.add_column(get_text('table_old_value'), style="red")
+    summary_table.add_column(get_text('table_new_value'), style="green")
+    all_keys = set(original_comp.keys()) | set(comp.keys())
+    for key in sorted(list(all_keys)):
+        old_val = format_value_for_display(original_comp.get(key), current_lang if key == 'descriptions' else None)
+        new_val = format_value_for_display(comp.get(key), current_lang if key == 'descriptions' else None)
+        if old_val != new_val:
+            summary_table.add_row(key, old_val, f"[bold]{new_val}[/]")
+    
+    console.print(summary_table)
+    if questionary.confirm(get_text('save_changes_prompt'), style=custom_style).ask():
+        components[comp_id_to_edit] = comp
+        console.print(f"\n[green]{get_text('component_updated', name=comp['name'])}[/]")
+        if save_components(components):
+            components = load_components()
+    else:
+        console.print(f"\n[yellow]{get_text('edit_cancelled')}[/]")
+    return components
+
+def delete_component(components):
+    if not components:
+        console.print(f"[yellow]{get_text('no_components')}[/]")
+        return components
+    choices = [questionary.Choice(f"{details['name']} ({comp_id})", value=comp_id) for comp_id, details in sorted(components.items())]
+    comp_id_to_delete = questionary.select(get_text('delete_component_prompt'), choices=choices, style=custom_style).ask()
+    if not comp_id_to_delete:
+        return components
+    comp_name = components[comp_id_to_delete]['name']
+    if questionary.confirm(get_text('confirm_delete', name=comp_name), style=custom_style).ask():
+        del components[comp_id_to_delete]
+        console.print(f"[green]{get_text('component_deleted', name=comp_name)}[/]")
+        if save_components(components):
+            components = load_components()
+    else:
+        console.print(f"[yellow]{get_text('delete_cancelled')}[/]")
+    return components
+
+def edit_components_menu():
+    components = load_components()
+    if components is None:
+        return
+    components_path = os.path.join(get_base_path(), COMPONENTS_FILE)
+    backup_file = components_path + '.bak'
+    if os.path.exists(components_path) and not os.path.exists(backup_file):
+        try:
+            shutil.copy(components_path, backup_file)
+            console.print(f"[dim]{get_text('backup_created', backup_file=backup_file)}[/]")
+        except IOError as e:
+            console.print(f"[yellow]WARNING:[/] Could not create backup: {e}")
+    
+    while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        console.print(Panel(f"[bold white]{get_text('component_editor_title')}[/]", 
+                           style="bold magenta", subtitle=get_text('component_editor_subtitle'), 
+                           subtitle_align="right"))
+        choice = questionary.select(
+            get_text('editor_action_prompt'),
+            choices=[
+                get_text('view_components'),
+                get_text('add_component'),
+                get_text('edit_component'),
+                get_text('delete_component'),
+                questionary.Separator(),
+                get_text('return_to_main')
+            ],
+            style=custom_style,
+            instruction=get_text('menu_instruction')
+        ).ask()
+        if choice == get_text('view_components'):
+            view_components(components)
+            questionary.press_any_key_to_continue(get_text('press_any_key'), style=custom_style).ask()
+        elif choice == get_text('add_component'):
+            components = add_component(components)
+            questionary.press_any_key_to_continue(get_text('press_any_key'), style=custom_style).ask()
+        elif choice == get_text('edit_component'):
+            components = edit_component(components)
+            questionary.press_any_key_to_continue(get_text('press_any_key'), style=custom_style).ask()
+        elif choice == get_text('delete_component'):
+            components = delete_component(components)
+            questionary.press_any_key_to_continue(get_text('press_any_key'), style=custom_style).ask()
+        elif choice == get_text('return_to_main') or choice is None:
+            return
 
 # --- View Component Details ---
 def view_component_details(all_components, selected_ids):
@@ -463,7 +791,7 @@ def view_component_details(all_components, selected_ids):
     questionary.press_any_key_to_continue(get_text('press_any_key'), style=custom_style).ask()
 
 def run_builder():
-    global github_pat
+    global github_pat, config
     base_path = get_base_path()
     temp_download_path = os.path.join(base_path, DOWNLOAD_DIR)
     temp_build_path = os.path.join(base_path, BUILD_DIR)
@@ -479,7 +807,8 @@ def run_builder():
             console.print(f"[yellow]{get_text('cache_cleared', CACHE_FILE=CACHE_FILE)}[/]")
 
         if github_pat is None:
-            console.print(f"[dim]{get_text('pat_info')}[/]")
+            console.print(f"[dim]{get_text('pat_info')}[/dim]")
+            console.print(f"[dim yellow]{get_text('pat_save_warning')}[/dim]")
             pat_input = questionary.password(
                 get_text('pat_prompt'), qmark="🔑", style=custom_style
             ).ask()
@@ -487,6 +816,8 @@ def run_builder():
                 return
             github_pat = pat_input if pat_input else None
             if github_pat:
+                config['github_pat'] = github_pat
+                save_config(config)
                 console.print(f"[green]{get_text('pat_set_success')}[/]")
             else:
                 console.print(f"[yellow]{get_text('pat_skipped')}[/]")
@@ -552,19 +883,24 @@ def run_builder():
         output_filename = f"{OUTPUT_FILENAME_BASE}-{timestamp}-{content_hash}.zip"
         output_path = os.path.join(base_path, output_filename)
 
-        # --- NEW: Changelog Comparison Logic ---
         last_build = load_last_build()
         last_components = last_build.get('components', {})
         changes = []
+        
+        # Check for updated and newly added components
         for comp_id, comp_data in sorted(user_choices.items()):
             current_version = comp_data.get('asset_info', {}).get('version', 'N/A')
-            last_version = last_components.get(comp_id)
-            if last_version is None:
+            last_comp_info = last_components.get(comp_id)
+            if last_comp_info is None:
                 changes.append(f"* {comp_data['name']}: Newly Added ({current_version})")
-            elif last_version != current_version:
-                changes.append(f"* {comp_data['name']}: Updated from {last_version} to {current_version}")
+            elif last_comp_info.get('version') != current_version:
+                changes.append(f"* {comp_data['name']}: Updated from {last_comp_info.get('version')} to {current_version}")
         
-        # Check for identical build only if no changes were detected
+        # Check for removed components
+        for comp_id, last_comp_info in sorted(last_components.items()):
+            if comp_id not in user_choices:
+                changes.append(f"* {last_comp_info.get('name', comp_id)}: Removed (was {last_comp_info.get('version')})")
+
         if not changes and last_build.get('content_hash') == content_hash:
              last_filename = last_build.get('filename')
              if last_filename and os.path.exists(os.path.join(base_path, last_filename)):
@@ -648,12 +984,16 @@ def run_builder():
         create_pack_summary(user_choices, categories, output_filename, VERSION, content_hash, changes)
         create_final_zip(temp_build_path, output_path)
         
-        # --- NEW: Save detailed build info for next changelog ---
         new_build_info = {
             'content_hash': content_hash,
             'filename': output_filename,
             'timestamp': timestamp,
-            'components': {comp_id: data.get('asset_info', {}).get('version', 'N/A') for comp_id, data in user_choices.items()}
+            'components': {
+                comp_id: {
+                    'name': data['name'],
+                    'version': data.get('asset_info', {}).get('version', 'N/A')
+                } for comp_id, data in user_choices.items()
+            }
         }
         save_last_build(new_build_info)
 
@@ -664,11 +1004,13 @@ def run_builder():
         return
 
 def reset_pat():
-    global github_pat
+    global github_pat, config
     if github_pat is None:
         console.print(f"[yellow]{get_text('no_pat_set')}[/]")
     elif questionary.confirm(get_text('confirm_clear_pat'), style=custom_style).ask():
         github_pat = None
+        config.pop('github_pat', None)
+        save_config(config)
         console.print(f"[yellow]{get_text('pat_cleared')}[/]")
     else:
         console.print(f"[yellow]{get_text('pat_not_cleared')}[/]")
@@ -676,8 +1018,9 @@ def reset_pat():
 
 # --- Main Menu ---
 def main():
-    global config
+    global config, github_pat
     config = load_config()
+    github_pat = config.get('github_pat')
     lang_code = config.get('language', 'en')
     if lang_code not in get_available_languages():
         lang_code = 'en'
@@ -708,9 +1051,7 @@ def main():
         if choice == get_text('main_menu_builder'):
             run_builder()
         elif choice == get_text('main_menu_editor'):
-            # edit_components_menu()  # This function was omitted for brevity
-            console.print("[yellow]JSON editor functionality is currently omitted from this script view.[/]")
-            questionary.press_any_key_to_continue().ask()
+            edit_components_menu()
         elif choice == get_text('main_menu_clear_cache'):
             clear_cache()
         elif choice == get_text('main_menu_change_language'):
