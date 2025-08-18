@@ -352,7 +352,7 @@ def process_component(component, downloaded_file_path, build_dir):
                             console.print(f"     - {get_text('find_and_rename', old_name=os.path.basename(member.filename), new_name=target_filename)}")
                             break
             elif action == 'delete_file':
-                path_pattern = os.path.join(build_dir, step['target_path'].strip('/\\'))
+                path_pattern = os.path.join(build_dir, step.get('target_path', step.get('path', '')).strip('/\\'))
                 items_to_delete = glob.glob(path_pattern)
                 for item in items_to_delete:
                     if os.path.isfile(item):
