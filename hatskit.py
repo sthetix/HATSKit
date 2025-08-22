@@ -305,64 +305,111 @@ def compute_content_hash(user_choices):
 
 # --- HATS Processing Logic ---
 def process_component(component, downloaded_file_path, build_dir):
-    console.print(f"  -> [cyan]{get_text('processing_component', name=component['name'])}[/]")
+    console.print(f"     -> [cyan]{get_text('processing_component', name=component['name'])}[/]")
     for step in component.get('processing_steps', []):
         action = step.get('action')
         try:
             if action == 'unzip_to_root':
                 with zipfile.ZipFile(downloaded_file_path, 'r') as zf:
                     zf.extractall(build_dir)
-                console.print(f"     - {get_text('unzip_to_root')}")
+                console.print(f"      - {get_text('unzip_to_root')}")
             elif action == 'copy_file':
                 target_path_str = step['target_path'].strip('/\\')
                 target_path = os.path.join(build_dir, target_path_str)
                 os.makedirs(os.path.dirname(target_path), exist_ok=True)
                 shutil.copy(downloaded_file_path, target_path)
-                console.print(f"     - {get_text('copy_file', path=step['target_path'])}")
+                console.print(f"      - {get_text('copy_file', path=step['target_path'])}")
             elif action == 'unzip_folder':
                 target_dir = os.path.join(build_dir, step['target_path'].strip('/\\'))
                 os.makedirs(target_dir, exist_ok=True)
                 with zipfile.ZipFile(downloaded_file_path, 'r') as zf:
                     zf.extractall(target_dir)
-                console.print(f"     - {get_text('unzip_folder', path=step['target_path'])}")
+                console.print(f"      - {get_text('unzip_folder', path=step['target_path'])}")
             elif action == 'find_and_copy':
                 source_pattern = step['source_file_pattern']
                 target_dir = os.path.join(build_dir, step['target_path'].strip('/\\'))
                 os.makedirs(target_dir, exist_ok=True)
+                found_and_copied = False
+
                 with zipfile.ZipFile(downloaded_file_path, 'r') as zf:
-                    for member in zf.infolist():
-                        if fnmatch(os.path.basename(member.filename), source_pattern) and not member.is_dir():
-                            member_filename = os.path.basename(member.filename)
-                            target_path = os.path.join(target_dir, member_filename)
-                            with open(target_path, "wb") as f:
-                                f.write(zf.read(member.filename))
-                            console.print(f"     - {get_text('find_and_copy', filename=member_filename, path=step['target_path'])}")
+                    # Prioritize matching a folder. A directory in a zip usually ends with '/'.
+                    folder_to_copy = None
+                    for member_name in zf.namelist():
+                        if member_name.endswith('/') and fnmatch(member_name.strip('/'), source_pattern):
+                            folder_to_copy = member_name
                             break
+                    
+                    if folder_to_copy:
+                        # If a folder matches, extract its contents to the target directory.
+                        for member in zf.infolist():
+                            # Check if the member is inside the folder we want to copy.
+                            if member.filename.startswith(folder_to_copy) and member.filename != folder_to_copy:
+                                # Calculate the path relative to the folder being copied.
+                                relative_path = os.path.relpath(member.filename, folder_to_copy)
+                                final_target_path = os.path.join(target_dir, relative_path)
+                                
+                                if member.is_dir():
+                                    os.makedirs(final_target_path, exist_ok=True)
+                                else:
+                                    # Ensure the destination directory for the file exists.
+                                    os.makedirs(os.path.dirname(final_target_path), exist_ok=True)
+                                    # Extract the file by reading from the zip and writing to the new location.
+                                    with zf.open(member) as source_file, open(final_target_path, 'wb') as target_file:
+                                        shutil.copyfileobj(source_file, target_file)
+                        
+                        console.print(f"      - Copied contents of folder '{folder_to_copy.strip('/')}' to '{step['target_path']}'")
+                        found_and_copied = True
+                    
+                    # If no folder was copied, fall back to finding a single matching file.
+                    if not found_and_copied:
+                        for member in zf.infolist():
+                            if fnmatch(os.path.basename(member.filename), source_pattern) and not member.is_dir():
+                                member_filename = os.path.basename(member.filename)
+                                target_path = os.path.join(target_dir, member_filename)
+                                with zf.open(member) as source_file, open(target_path, "wb") as target_file:
+                                    shutil.copyfileobj(source_file, target_file)
+                                
+                                console.print(f"      - {get_text('find_and_copy', filename=member_filename, path=step['target_path'])}")
+                                found_and_copied = True
+                                break # Maintain original behavior of copying only the first file match.
+
+                if not found_and_copied:
+                    console.print(f"      - [yellow]Warning:[/] No file or folder matching '{source_pattern}' found to copy.")
             elif action == 'find_and_rename':
                 source_pattern = step['source_file_pattern']
                 target_filename = step['target_filename']
                 target_dir = os.path.join(build_dir, step['target_path'].strip('/\\'))
                 os.makedirs(target_dir, exist_ok=True)
                 target_path = os.path.join(target_dir, target_filename)
+                found_and_copied = False
+
                 with zipfile.ZipFile(downloaded_file_path, 'r') as zf:
                     for member in zf.infolist():
-                        if fnmatch(os.path.basename(member.filename), source_pattern):
+                        if fnmatch(os.path.basename(member.filename), source_pattern) and not member.is_dir():
                             with open(target_path, 'wb') as f:
                                 f.write(zf.read(member.filename))
-                            console.print(f"     - {get_text('find_and_rename', old_name=os.path.basename(member.filename), new_name=target_filename)}")
-                            break
+                            console.print(f"      - {get_text('find_and_rename', old_name=os.path.basename(member.filename), new_name=target_filename)}")
+                            found_and_copied = True
+                            break # This action is only intended for files, so folder logic is not needed.
+
+                if not found_and_copied:
+                    console.print(f"      - [yellow]Warning:[/] No file matching '{source_pattern}' found to rename.")
             elif action == 'delete_file':
-                path_pattern = os.path.join(build_dir, step.get('target_path', step.get('path', '')).strip('/\\'))
+                path_pattern = os.path.join(build_dir, step['target_path'].strip('/\\'))
                 items_to_delete = glob.glob(path_pattern)
-                for item in items_to_delete:
-                    if os.path.isfile(item):
-                        os.remove(item)
-                        console.print(f"     - {get_text('delete_file', filename=os.path.basename(item))}")
-                    elif os.path.isdir(item):
-                        shutil.rmtree(item)
-                        console.print(f"     - Deleted folder: {os.path.basename(item)}")
+                if not items_to_delete:
+                    # Add a warning if no matching files/folders were found to delete.
+                    console.print(f"      - [yellow]Warning:[/] No items found matching '{step['target_path']}' to delete.")
+                else:
+                    for item in items_to_delete:
+                        if os.path.isfile(item):
+                            os.remove(item)
+                            console.print(f"      - {get_text('delete_file', filename=os.path.basename(item))}")
+                        elif os.path.isdir(item):
+                            shutil.rmtree(item)
+                            console.print(f"      - Deleted folder: {os.path.basename(item)}")
         except Exception as e:
-            console.print(f"     - [bold red]ERROR[/] {get_text('processing_error', action=action, error=e)}")
+            console.print(f"      - [bold red]ERROR[/] {get_text('processing_error', action=action, error=e)}")
 
 def create_final_zip(build_dir, output_filename):
     console.print(f"\n[bold]{get_text('creating_zip')}[/]")
