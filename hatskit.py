@@ -134,7 +134,7 @@ def change_language():
     language_names = {
         'de': 'Deutsch', 'en': 'English', 'es': 'Español', 'fr': 'Français',
         'id': 'Bahasa Indonesia', 'it': 'Italiano', 'ja': '日本語', 'ko': '한국어',
-        'pt': 'Português', 'ru': 'Русский', 'zh': '中文'
+        'pt': 'Português', 'ru': 'Русский', 'tr': 'Türkçe', 'zh': '中文'
     }
     lang_code = questionary.select(
         get_text('main_menu_change_language'),
