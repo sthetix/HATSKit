@@ -140,5 +140,11 @@
   "no_pat_set": "Nenhum PAT do GitHub está configurado atualmente.",
   "confirm_clear_pat": "Tem certeza de que deseja limpar o PAT do GitHub? Você será solicitado a inserir um novo na próxima vez que usar o construtor.",
   "pat_cleared": "PAT do GitHub foi limpo. Você será solicitado a inserir um novo na próxima vez que usar o construtor.",
-  "pat_not_cleared": "PAT do GitHub não foi limpo."
+  "pat_not_cleared": "PAT do GitHub não foi limpo.",
+  "pat_save_warning": "Nota: Se um token for inserido, ele será salvo em texto simples no config.json por conveniência.",
+  "hekate_customize_prompt": "Deseja personalizar as entradas de inicialização do Hekate? (O padrão é recomendado)",
+  "hekate_select_entries": "Selecione quais entradas de inicialização incluir:",
+  "hekate_selection_required": "Você deve selecionar pelo menos uma entrada de inicialização.",
+  "hekate_no_entries": "Nenhuma entrada selecionada, usando a configuração padrão do Hekate.",
+  "hekate_generated": "O arquivo hekate_ipl.ini personalizado foi gerado com sucesso."
 }

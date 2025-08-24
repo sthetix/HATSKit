@@ -140,5 +140,11 @@
   "no_pat_set": "Nessun PAT GitHub è attualmente impostato.",
   "confirm_clear_pat": "Sei sicuro di voler cancellare il PAT GitHub? Ti verrà chiesto di inserirne uno nuovo la prossima volta che utilizzerai il costruttore.",
   "pat_cleared": "Il PAT GitHub è stato cancellato. Ti verrà chiesto di inserirne uno nuovo la prossima volta che utilizzerai il costruttore.",
-  "pat_not_cleared": "Il PAT GitHub non è stato cancellato."
+  "pat_not_cleared": "Il PAT GitHub non è stato cancellato.",
+  "pat_save_warning": "Nota: se viene inserito un token, verrà salvato in testo semplice in config.json per comodità.",
+  "hekate_customize_prompt": "Vuoi personalizzare le voci di avvio di Hekate? (È consigliata l'impostazione predefinita)",
+  "hekate_select_entries": "Seleziona quali voci di avvio includere:",
+  "hekate_selection_required": "Devi selezionare almeno una voce di avvio.",
+  "hekate_no_entries": "Nessuna voce selezionata, si utilizza la configurazione di Hekate predefinita.",
+  "hekate_generated": "Il file hekate_ipl.ini personalizzato è stato generato con successo."
 }

@@ -140,5 +140,11 @@
   "no_pat_set": "Aucun PAT GitHub n'est actuellement défini.",
   "confirm_clear_pat": "Êtes-vous sûr de vouloir effacer le PAT GitHub ? Vous devrez en entrer un nouveau la prochaine fois que vous utiliserez le constructeur.",
   "pat_cleared": "Le PAT GitHub a été effacé. Vous devrez en entrer un nouveau la prochaine fois que vous utiliserez le constructeur.",
-  "pat_not_cleared": "Le PAT GitHub n'a pas été effacé."
+  "pat_not_cleared": "Le PAT GitHub n'a pas été effacé.",
+  "pat_save_warning": "Note : Si un jeton est saisi, il sera enregistré en texte clair dans config.json par commodité.",
+  "hekate_customize_prompt": "Voulez-vous personnaliser les entrées de démarrage de Hekate ? (La valeur par défaut est recommandée)",
+  "hekate_select_entries": "Sélectionnez les entrées de démarrage à inclure :",
+  "hekate_selection_required": "Vous devez sélectionner au moins une entrée de démarrage.",
+  "hekate_no_entries": "Aucune entrée sélectionnée, utilisation de la configuration Hekate par défaut.",
+  "hekate_generated": "Le fichier hekate_ipl.ini personnalisé a été généré avec succès."
 }

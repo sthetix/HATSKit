@@ -140,5 +140,11 @@
   "no_pat_set": "現在、GitHub PATは設定されていません。",
   "confirm_clear_pat": "GitHub PATをクリアしてもよろしいですか？次回ビルダーを使用する際に新しいものを入力する必要があります。",
   "pat_cleared": "GitHub PATがクリアされました。次回ビルダーを使用する際に新しいものを入力する必要があります。",
-  "pat_not_cleared": "GitHub PATはクリアされませんでした。"
+  "pat_not_cleared": "GitHub PATはクリアされませんでした。",
+  "pat_save_warning": "注：トークンが入力された場合、便宜上config.jsonに平文で保存されます。",
+  "hekate_customize_prompt": "Hekateのブートエントリをカスタマイズしますか？（デフォルトを推奨）",
+  "hekate_select_entries": "含めるブートエントリを選択してください：",
+  "hekate_selection_required": "少なくとも1つのブートエントリを選択する必要があります。",
+  "hekate_no_entries": "エントリが選択されていません。デフォルトのHekate設定を使用します。",
+  "hekate_generated": "カスタムhekate_ipl.iniが正常に生成されました。"
 }
