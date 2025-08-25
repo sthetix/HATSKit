@@ -140,5 +140,11 @@
   "no_pat_set": "Derzeit ist kein GitHub PAT gesetzt.",
   "confirm_clear_pat": "Sind Sie sicher, dass Sie das GitHub PAT löschen möchten? Sie müssen beim nächsten Gebrauch des Builders ein neues eingeben.",
   "pat_cleared": "GitHub PAT wurde gelöscht. Sie müssen beim nächsten Gebrauch des Builders ein neues eingeben.",
-  "pat_not_cleared": "GitHub PAT wurde nicht gelöscht."
+  "pat_not_cleared": "GitHub PAT wurde nicht gelöscht.",
+  "pat_save_warning": "Hinweis: Wenn ein Token eingegeben wird, wird es zur Vereinfachung im Klartext in config.json gespeichert.",
+  "hekate_customize_prompt": "Möchten Sie die Hekate-Starteinträge anpassen? (Standard wird empfohlen)",
+  "hekate_select_entries": "Wählen Sie aus, welche Starteinträge aufgenommen werden sollen:",
+  "hekate_selection_required": "Sie müssen mindestens einen Starteintrag auswählen.",
+  "hekate_no_entries": "Keine Einträge ausgewählt, Standard-Hekate-Konfiguration wird verwendet.",
+  "hekate_generated": "Benutzerdefinierte hekate_ipl.ini erfolgreich erstellt."
 }

@@ -140,5 +140,11 @@
   "no_pat_set": "No GitHub PAT is currently set.",
   "confirm_clear_pat": "Are you sure you want to clear the GitHub PAT? You will be prompted to enter a new one next time you use the builder.",
   "pat_cleared": "GitHub PAT has been cleared. You will be prompted to enter a new one next time you use the builder.",
-  "pat_not_cleared": "GitHub PAT was not cleared."
+  "pat_not_cleared": "GitHub PAT was not cleared.",
+  "pat_save_warning": "Note: If a token is entered, it will be saved in plain text to config.json for convenience.",
+  "hekate_customize_prompt": "Do you want to customize Hekate boot entries? (The default is recommended)",
+  "hekate_select_entries": "Select which boot entries to include:",
+  "hekate_selection_required": "You must select at least one boot entry.",
+  "hekate_no_entries": "No entries selected, using default Hekate config.",
+  "hekate_generated": "Custom hekate_ipl.ini generated successfully."
 }

@@ -140,5 +140,11 @@
   "no_pat_set": "当前未设置GitHub PAT。",
   "confirm_clear_pat": "您确定要清除GitHub PAT吗？下次使用构建器时将需要输入一个新的。",
   "pat_cleared": "GitHub PAT已清除。下次使用构建器时将需要输入一个新的。",
-  "pat_not_cleared": "GitHub PAT未被清除。"
+  "pat_not_cleared": "GitHub PAT未被清除。",
+  "pat_save_warning": "注意：如果输入了令牌，它将为方便起见以纯文本形式保存在 config.json 中。",
+  "hekate_customize_prompt": "您想自定义 Hekate 启动项吗？ (推荐使用默认设置)",
+  "hekate_select_entries": "请选择要包含的启动项：",
+  "hekate_selection_required": "您必须至少选择一个启动项。",
+  "hekate_no_entries": "未选择任何条目，将使用默认的 Hekate 配置。",
+  "hekate_generated": "已成功生成自定义 hekate_ipl.ini。"
 }
