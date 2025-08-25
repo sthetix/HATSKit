@@ -140,5 +140,11 @@
   "no_pat_set": "Şu anda bir GitHub PAT ayarlanmadı.",
   "confirm_clear_pat": "GitHub PAT'i temizlemek istediğinize emin misiniz? Bir sonraki kullanımda tekrar girmeniz gerekecek.",
   "pat_cleared": "GitHub PAT temizlendi. Bir sonraki kullanımda tekrar girmeniz gerekecek.",
-  "pat_not_cleared": "GitHub PAT temizlenmedi."
+  "pat_not_cleared": "GitHub PAT temizlenmedi.",
+  "pat_save_warning": "Not: Bir anahtar girilirse, kolaylık olması için config.json dosyasına düz metin olarak kaydedilecektir.",
+  "hekate_customize_prompt": "Hekate önyükleme girişlerini özelleştirmek ister misiniz? (Varsayılan önerilir)",
+  "hekate_select_entries": "Dahil edilecek önyükleme girişlerini seçin:",
+  "hekate_selection_required": "En az bir önyükleme girişi seçmelisiniz.",
+  "hekate_no_entries": "Giriş seçilmedi, varsayılan Hekate yapılandırması kullanılacak.",
+  "hekate_generated": "Özel hekate_ipl.ini başarıyla oluşturuldu."
 }
