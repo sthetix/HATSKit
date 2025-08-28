@@ -142,9 +142,10 @@
   "pat_cleared": "GitHub PAT has been cleared. You will be prompted to enter a new one next time you use the builder.",
   "pat_not_cleared": "GitHub PAT was not cleared.",
   "pat_save_warning": "Note: If a token is entered, it will be saved in plain text to config.json for convenience.",
-  "hekate_customize_prompt": "Do you want to customize Hekate boot entries? (The default is recommended)",
+  "hekate_customize_prompt": "Do you want to customize Hekate boot entries? (Default: No)",
   "hekate_select_entries": "Select which boot entries to include:",
   "hekate_selection_required": "You must select at least one boot entry.",
   "hekate_no_entries": "No entries selected, using default Hekate config.",
-  "hekate_generated": "Custom hekate_ipl.ini generated successfully."
+  "hekate_generated": "Custom hekate_ipl.ini generated successfully.",
+  "target_path_prompt_delete": "Enter path to delete (e.g., '/switch/old_app.nro' or '/switch/old_folder/'):"
 }

@@ -141,10 +141,11 @@
   "confirm_clear_pat": "Sind Sie sicher, dass Sie das GitHub PAT löschen möchten? Sie müssen beim nächsten Gebrauch des Builders ein neues eingeben.",
   "pat_cleared": "GitHub PAT wurde gelöscht. Sie müssen beim nächsten Gebrauch des Builders ein neues eingeben.",
   "pat_not_cleared": "GitHub PAT wurde nicht gelöscht.",
-  "pat_save_warning": "Hinweis: Wenn ein Token eingegeben wird, wird es zur Vereinfachung im Klartext in config.json gespeichert.",
-  "hekate_customize_prompt": "Möchten Sie die Hekate-Starteinträge anpassen? (Standard wird empfohlen)",
-  "hekate_select_entries": "Wählen Sie aus, welche Starteinträge aufgenommen werden sollen:",
+  "hekate_customize_prompt": "Möchten Sie Hekate -Starteinträge anpassen? (Standard: Nein)",
+  "hekate_generated": "Benutzerdefinierte hekate_ipl.ini erfolgreich generiert.",
+  "hekate_no_entries": "Keine Einträge ausgewählt, unter Verwendung der Standard -Hekate -Konfiguration.",
+  "hekate_select_entries": "Wählen Sie aus, welche Starteinträge enthalten sind:",
   "hekate_selection_required": "Sie müssen mindestens einen Starteintrag auswählen.",
-  "hekate_no_entries": "Keine Einträge ausgewählt, Standard-Hekate-Konfiguration wird verwendet.",
-  "hekate_generated": "Benutzerdefinierte hekate_ipl.ini erfolgreich erstellt."
+  "target_path_prompt_delete": "Geben Sie den Pfad zum Löschen ein (z. B. '/witch/old_app.nro' oder '/switch/old_Folder/'):",
+  "pat_save_warning": "Hinweis: Wenn ein Token eingegeben wird, wird es für die Bequemlichkeit im Klartext in Config.json gespeichert."
 }

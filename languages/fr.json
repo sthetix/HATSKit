@@ -129,7 +129,7 @@
   "pack_summary_title": "Pack HATS - Contenus de Construction Personnalisée",
   "summary_created": "Fichier de résumé créé avec succès : {filename}",
   "summary_error": "Impossible de créer le fichier de résumé : {error}",
-  "build_complete": "Construction Terminée ! 🥳",
+  "build_complete": "Construisez complet! 🥳",
   "output_location": "Trouvez votre fichier à : {path}",
   "press_any_key": "Appuyez sur une touche pour revenir au menu principal...",
   "cache_cleared": "Fichier de cache '{CACHE_FILE}' vidé. La prochaine exécution du constructeur récupérera les données en direct.",
@@ -141,10 +141,11 @@
   "confirm_clear_pat": "Êtes-vous sûr de vouloir effacer le PAT GitHub ? Vous devrez en entrer un nouveau la prochaine fois que vous utiliserez le constructeur.",
   "pat_cleared": "Le PAT GitHub a été effacé. Vous devrez en entrer un nouveau la prochaine fois que vous utiliserez le constructeur.",
   "pat_not_cleared": "Le PAT GitHub n'a pas été effacé.",
-  "pat_save_warning": "Note : Si un jeton est saisi, il sera enregistré en texte clair dans config.json par commodité.",
-  "hekate_customize_prompt": "Voulez-vous personnaliser les entrées de démarrage de Hekate ? (La valeur par défaut est recommandée)",
-  "hekate_select_entries": "Sélectionnez les entrées de démarrage à inclure :",
+  "hekate_customize_prompt": "Voulez-vous personnaliser les entrées de démarrage Hekate? (Par défaut: non)",
+  "hekate_generated": "Custom hekate_ipl.ini a généré avec succès.",
+  "hekate_no_entries": "Aucune entrée sélectionnée, en utilisant la configuration Hekate par défaut.",
+  "hekate_select_entries": "Sélectionnez les entrées de démarrage à inclure:",
   "hekate_selection_required": "Vous devez sélectionner au moins une entrée de démarrage.",
-  "hekate_no_entries": "Aucune entrée sélectionnée, utilisation de la configuration Hekate par défaut.",
-  "hekate_generated": "Le fichier hekate_ipl.ini personnalisé a été généré avec succès."
+  "pat_save_warning": "Remarque: Si un jeton est entré, il sera enregistré en texte brut sur config.json pour plus de commodité.",
+  "target_path_prompt_delete": "Entrez le chemin d'accès à supprimer (par exemple, '/witch/old_app.nro' ou '/ switch / old_folder /'):"
 }

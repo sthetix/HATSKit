@@ -141,10 +141,11 @@
   "confirm_clear_pat": "GitHub PATをクリアしてもよろしいですか？次回ビルダーを使用する際に新しいものを入力する必要があります。",
   "pat_cleared": "GitHub PATがクリアされました。次回ビルダーを使用する際に新しいものを入力する必要があります。",
   "pat_not_cleared": "GitHub PATはクリアされませんでした。",
-  "pat_save_warning": "注：トークンが入力された場合、便宜上config.jsonに平文で保存されます。",
-  "hekate_customize_prompt": "Hekateのブートエントリをカスタマイズしますか？（デフォルトを推奨）",
-  "hekate_select_entries": "含めるブートエントリを選択してください：",
+  "hekate_customize_prompt": "Hekateブートエントリをカスタマイズしますか？ （デフォルト：いいえ）",
+  "hekate_generated": "カスタムHekate_ipl.iniは正常に生成されました。",
+  "hekate_no_entries": "デフォルトのHekate構成を使用して、選択されたエントリはありません。",
+  "hekate_select_entries": "どのブートエントリを選択するかを選択します。",
   "hekate_selection_required": "少なくとも1つのブートエントリを選択する必要があります。",
-  "hekate_no_entries": "エントリが選択されていません。デフォルトのHekate設定を使用します。",
-  "hekate_generated": "カスタムhekate_ipl.iniが正常に生成されました。"
+  "target_path_prompt_delete": "削除するパスを入力します（例： '/switch/old_app.nro'または '/switch/old_folder/'）：",
+  "pat_save_warning": "注：トークンが入力された場合、便利なためにconfig.jsonにプレーンテキストに保存されます。"
 }

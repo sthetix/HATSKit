@@ -141,10 +141,11 @@
   "confirm_clear_pat": "¿Estás seguro de que quieres borrar el PAT de GitHub? Se te pedirá que ingreses uno nuevo la próxima vez que uses el constructor.",
   "pat_cleared": "El PAT de GitHub ha sido borrado. Se te pedirá que ingreses uno nuevo la próxima vez que uses el constructor.",
   "pat_not_cleared": "El PAT de GitHub no fue borrado.",
-  "pat_save_warning": "Nota: Si se introduce un token, se guardará en texto plano en config.json por conveniencia.",
-  "hekate_customize_prompt": "¿Desea personalizar las entradas de arranque de Hekate? (Se recomienda el valor predeterminado)",
-  "hekate_select_entries": "Seleccione qué entradas de arranque incluir:",
+  "hekate_customize_prompt": "¿Quieres personalizar las entradas de arranque Hekate? (Predeterminado: no)",
+  "hekate_generated": "Hekate_IPl.ini personalizado generado con éxito.",
+  "hekate_no_entries": "No se seleccionaron entradas, utilizando la configuración de Hekate predeterminada.",
+  "hekate_select_entries": "Seleccione qué entradas de arranque incluye:",
   "hekate_selection_required": "Debe seleccionar al menos una entrada de arranque.",
-  "hekate_no_entries": "No se seleccionaron entradas, se usará la configuración de Hekate por defecto.",
-  "hekate_generated": "El archivo hekate_ipl.ini personalizado se ha generado correctamente."
+  "target_path_prompt_delete": "Ingrese la ruta para eliminar (por ejemplo, '/switch/old_app.nro' o '/switch/old_folder/')::",
+  "pat_save_warning": "Nota: Si se ingresa un token, se guardará en texto plano a config.json por conveniencia."
 }
