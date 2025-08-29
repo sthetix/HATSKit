@@ -854,10 +854,7 @@ def run_builder():
                 short_description = (description[:37] + '...') if len(description) > 40 else description
                 title = f"{comp['name']} ({version}) - {short_description}"
                 choices.append(questionary.Choice(title=title, value=id, checked=comp.get('default', False)))
-            choices.append(questionary.Separator(" "))
-        choices.append(questionary.Separator(f"--- {get_text('options')} ---"))
-        choices.append(questionary.Choice(title=get_text('view_details'), value="view_details"))
-        choices.append(questionary.Choice(title=get_text('return_to_main'), value="return_to_main"))
+            
 
         while True:
             selected_ids = questionary.checkbox(
@@ -865,20 +862,36 @@ def run_builder():
                 choices=choices,
                 style=custom_style,
                 instruction=get_text('select_instruction'),
-                validate=lambda selections: (
-                    True if selections or "return_to_main" in selections or "view_details" in selections
-                    else get_text('select_error')
-                )
+                validate=lambda s: True if s else get_text('select_error')
             ).ask()
 
-            if selected_ids is None or "return_to_main" in selected_ids:
-                console.print(f"[yellow]{get_text('return_to_main')}[/]")
+            if selected_ids is None: # Handle Ctrl+C
                 return
-            if "view_details" in selected_ids:
-                selected_ids.remove("view_details")
+
+            # After selecting components, ask the user for the next action.
+            next_action = questionary.select(
+                "What would you like to do next?",
+                choices=[
+                    questionary.Choice("Proceed to Build Summary", value="build"),
+                    questionary.Choice("View Details of Selection", value="view"),
+                    questionary.Choice("Return to Main Menu", value="return")
+                ],
+                style=custom_style
+            ).ask()
+
+            if next_action == "view":
                 view_component_details(all_components, selected_ids)
-                continue
-            break
+                # Re-render the choices with current selections still checked
+                for choice in choices:
+                    if isinstance(choice, questionary.Choice):
+                        choice.checked = choice.value in selected_ids
+                continue # Go back to the component selection prompt
+            
+            elif next_action == "return" or next_action is None:
+                return # Exit the builder
+            
+            else: # "build"
+                break # Proceed to the build summary
 
         user_choices = {id: all_components[id] for id in selected_ids if id not in ["view_details", "return_to_main"]}
 
