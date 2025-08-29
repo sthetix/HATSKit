@@ -9,7 +9,19 @@
     "asset_pattern": "Switch_90DNS_tester.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Tests if 90DNS is configured correctly.",
+    "descriptions": {
+      "de": "Testet, ob 90DNS korrekt konfiguriert ist.",
+      "en": "Tests if 90DNS is configured correctly.",
+      "es": "Prueba si 90DNS está configurado correctamente.",
+      "fr": "Teste si 90DNS est configuré correctement.",
+      "id": "Aplikasi untuk mengecek konfigurasi 90DNS.",
+      "it": "Verifica se 90DNS è configurato correttamente.",
+      "ja": "90DNSが正しく設定されているかテストします。",
+      "ko": "90DNS가 올바르게 구성되었는지 테스트합니다.",
+      "pt": "Testa se o 90DNS está configurado corretamente.",
+      "ru": "Проверяет, правильно ли настроен 90DNS.",
+      "zh": "测试90DNS是否配置正确。"
+    },
     "name": "Switch 90DNS Tester",
     "processing_steps": [
       {
@@ -30,7 +42,19 @@
     "asset_pattern": "AIO-Switch-Updater.zip",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Update everything from your Switch.",
+    "descriptions": {
+      "de": "Alles von Ihrer Switch aus aktualisieren.",
+      "en": "Update everything from your Switch.",
+      "es": "Actualiza todo desde tu Switch.",
+      "fr": "Mettez à jour tout depuis votre Switch.",
+      "id": "Update semua CFW dan homebrew langsung dari Switch.",
+      "it": "Aggiorna tutto dal tuo Switch.",
+      "ja": "Switchからすべてを更新します。",
+      "ko": "스위치에서 모든 것을 업데이트하세요.",
+      "pt": "Atualize tudo a partir do seu Switch.",
+      "ru": "Обновляйте всё с вашего Switch.",
+      "zh": "从您的Switch更新所有内容。"
+    },
     "name": "AIO-Switch-Updater",
     "processing_steps": [
       {
@@ -50,7 +74,19 @@
     "asset_pattern": "appstore.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Download new homebrew apps from your Switch.",
+    "descriptions": {
+      "de": "Laden Sie neue Homebrew-Apps von Ihrer Switch herunter.",
+      "en": "Download new homebrew apps from your Switch.",
+      "es": "Descarga nuevas aplicaciones homebrew desde tu Switch.",
+      "fr": "Téléchargez de nouvelles applications homebrew depuis votre Switch.",
+      "id": "Download aplikasi homebrew baru langsung dari Switch.",
+      "it": "Scarica nuove app homebrew dal tuo Switch.",
+      "ja": "Switchから新しいホームブリューアプリをダウンロードします。",
+      "ko": "스위치에서 새로운 홈브류 앱을 다운로드하세요.",
+      "pt": "Baixe novos aplicativos homebrew a partir do seu Switch.",
+      "ru": "Загружайте новые приложения homebrew с вашего Switch.",
+      "zh": "从您的Switch下载新的自制应用程序。"
+    },
     "name": "Homebrew Appstore",
     "processing_steps": [
       {
@@ -71,7 +107,19 @@
     "asset_pattern": "atmosphere-*.zip",
     "category": "Essential",
     "default": false,
-    "description": "Core CFW. Essential.",
+    "descriptions": {
+      "de": "Kern-CFW. Unverzichtbar.",
+      "en": "Core CFW. Essential.",
+      "es": "CFW principal. Esencial.",
+      "fr": "CFW principal. Essentiel.",
+      "id": "Core dari CFW. Komponen wajib.",
+      "it": "CFW principale. Essenziale.",
+      "ja": "コアCFW。必須。",
+      "ko": "핵심 CFW. 필수적입니다.",
+      "pt": "CFW principal. Essencial.",
+      "ru": "Основной CFW. Необходим.",
+      "zh": "核心CFW。必需品。"
+    },
     "name": "Atmosphere",
     "processing_steps": [
       {
@@ -91,7 +139,19 @@
     "asset_pattern": "DBI.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "MTP file manager and installer.",
+    "descriptions": {
+      "de": "MTP-Dateimanager und Installer.",
+      "en": "MTP file manager and installer.",
+      "es": "Gestor e instalador de archivos MTP.",
+      "fr": "Gestionnaire et installateur de fichiers MTP.",
+      "id": "File manager dan installer via MTP.",
+      "it": "Gestore e installatore di file MTP.",
+      "ja": "MTPファイルマネージャーとインストーラー。",
+      "ko": "MTP 파일 관리자 및 설치 프로그램.",
+      "pt": "Gerenciador e instalador de arquivos MTP.",
+      "ru": "Менеджер и установщик файлов MTP.",
+      "zh": "MTP文件管理器和安装器。"
+    },
     "name": "DBI ENG",
     "processing_steps": [
       {
@@ -113,7 +173,19 @@
     "asset_pattern": "DBI.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "MTP file manager and installer.",
+    "descriptions": {
+      "de": "MTP-Dateimanager und Installer.",
+      "en": "MTP file manager and installer.",
+      "es": "Gestor e instalador de archivos MTP.",
+      "fr": "Gestionnaire et installateur de fichiers MTP.",
+      "id": "File manager dan installer via MTP.",
+      "it": "Gestore e installatore di file MTP.",
+      "ja": "MTPファイルマネージャーとインストーラー。",
+      "ko": "MTP 파일 관리자 및 설치 프로그램.",
+      "pt": "Gerenciador e instalador de arquivos MTP.",
+      "ru": "Менеджер и установщик файлов MTP.",
+      "zh": "MTP文件管理器和安装器。"
+    },
     "name": "DBI RU",
     "processing_steps": [
       {
@@ -134,7 +206,19 @@
     "asset_pattern": "DNS-MITM_Manager.zip",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Tesla overlay for managing DNS redirection.",
+    "descriptions": {
+      "de": "Tesla-Overlay zur Verwaltung von DNS-Weiterleitungen.",
+      "en": "Tesla overlay for managing DNS redirection.",
+      "es": "Superposición de Tesla para gestionar la redirección de DNS.",
+      "fr": "Superposition Tesla pour gérer la redirection DNS.",
+      "id": "Tesla overlay untuk mengatur DNS redirect.",
+      "it": "Overlay Tesla per gestire il reindirizzamento DNS.",
+      "ja": "DNSリダイレクションを管理するためのTeslaオーバーレイ。",
+      "ko": "DNS 리디렉션을 관리하기 위한 Tesla 오버레이.",
+      "pt": "Sobreposição Tesla para gerenciar o redirecionamento de DNS.",
+      "ru": "Оверлей Tesla для управления перенаправлением DNS.",
+      "zh": "用于管理DNS重定向的Tesla覆盖层。"
+    },
     "name": "DNS MITM Manager",
     "processing_steps": [
       {
@@ -154,7 +238,19 @@
     "asset_pattern": "ovlEdiZon.ovl",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Tesla overlay for Edizon.",
+    "descriptions": {
+      "de": "Tesla-Overlay für Edizon.",
+      "en": "Tesla overlay for Edizon.",
+      "es": "Superposición de Tesla para Edizon.",
+      "fr": "Superposition Tesla pour Edizon.",
+      "id": "Tesla overlay untuk Edizon.",
+      "it": "Overlay Tesla per Edizon.",
+      "ja": "Edizon用のTeslaオーバーレイ。",
+      "ko": "Edizon용 Tesla 오버레이.",
+      "pt": "Sobreposição Tesla para Edizon.",
+      "ru": "Оверлей Tesla для Edizon.",
+      "zh": "用于Edizon的Tesla覆盖层。"
+    },
     "name": "Edizon Overlay",
     "processing_steps": [
       {
@@ -175,7 +271,19 @@
     "asset_pattern": "EdiZon.zip",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Save file editor.",
+    "descriptions": {
+      "de": "Speicherdatei-Editor.",
+      "en": "Save file editor.",
+      "es": "Editor de archivos de guardado.",
+      "fr": "Éditeur de fichiers de sauvegarde.",
+      "id": "Editor untuk save file game.",
+      "it": "Editor di file di salvataggio.",
+      "ja": "セーブファイルエディター。",
+      "ko": "세이브 파일 편집기.",
+      "pt": "Editor de arquivos de salvamento.",
+      "ru": "Редактор файлов сохранений.",
+      "zh": "存档文件编辑器。"
+    },
     "name": "Edizon SE",
     "processing_steps": [
       {
@@ -195,7 +303,19 @@
     "asset_pattern": "ftpd.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "FTP server for your Switch.",
+    "descriptions": {
+      "de": "FTP-Server für Ihre Switch.",
+      "en": "FTP server for your Switch.",
+      "es": "Servidor FTP para tu Switch.",
+      "fr": "Serveur FTP pour votre Switch.",
+      "id": "Aplikasi server FTP untuk Switch.",
+      "it": "Server FTP per il tuo Switch.",
+      "ja": "Switch用のFTPサーバー。",
+      "ko": "스위치용 FTP 서버.",
+      "pt": "Servidor FTP para o seu Switch.",
+      "ru": "FTP-сервер для вашего Switch.",
+      "zh": "为您的Switch提供FTP服务器。"
+    },
     "name": "FTPD Pro",
     "processing_steps": [
       {
@@ -216,7 +336,19 @@
     "asset_pattern": "Goldleaf.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Multipurpose homebrew tool.",
+    "descriptions": {
+      "de": "Vielseitiges Homebrew-Tool.",
+      "en": "Multipurpose homebrew tool.",
+      "es": "Herramienta homebrew multipropósito.",
+      "fr": "Outil homebrew polyvalent.",
+      "id": "Aplikasi homebrew serbaguna.",
+      "it": "Strumento homebrew multiuso.",
+      "ja": "多目的ホームブリューツール。",
+      "ko": "다목적 홈브류 도구.",
+      "pt": "Ferramenta homebrew multiuso.",
+      "ru": "Многоцелевой инструмент homebrew.",
+      "zh": "多用途自制工具。"
+    },
     "name": "Goldleaf",
     "processing_steps": [
       {
@@ -237,7 +369,19 @@
     "asset_pattern": "hekate_ctcaer_*.zip",
     "category": "Essential",
     "default": false,
-    "description": "Bootloader and tools. Essential.",
+    "descriptions": {
+      "de": "Bootloader und Werkzeuge. Unverzichtbar.",
+      "en": "Bootloader and tools. Essential.",
+      "es": "Cargador de arranque y herramientas. Esencial.",
+      "fr": "Chargeur de démarrage et outils. Essentiel.",
+      "id": "Bootloader dan tools. Komponen wajib.",
+      "it": "Bootloader e strumenti. Essenziale.",
+      "ja": "ブートローダーとツール。必須。",
+      "ko": "부트로더 및 도구. 필수적입니다.",
+      "pt": "Carregador de inicialização e ferramentas. Essencial.",
+      "ru": "Загрузчик и инструменты. Необходим.",
+      "zh": "引导加载程序和工具。必需品。"
+    },
     "name": "Hekate + Nyx",
     "processing_steps": [
       {
@@ -271,7 +415,19 @@
     "asset_pattern": "JKSV.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Save file backup and restore tool.",
+    "descriptions": {
+      "de": "Tool für Backup und Wiederherstellung von Speicherdateien.",
+      "en": "Save file backup and restore tool.",
+      "es": "Herramienta de respaldo y restauración de archivos de guardado.",
+      "fr": "Outil de sauvegarde et de restauration de fichiers de sauvegarde.",
+      "id": "Aplikasi untuk backup dan restore save file.",
+      "it": "Strumento di backup e ripristino dei file di salvataggio.",
+      "ja": "セーブファイルのバックアップと復元ツール。",
+      "ko": "세이브 파일 백업 및 복원 도구.",
+      "pt": "Ferramenta de backup e restauração de arquivos de salvamento.",
+      "ru": "Инструмент для резервного копирования и восстановления файлов сохранений.",
+      "zh": "存档文件备份和恢复工具。"
+    },
     "name": "JKSV",
     "processing_steps": [
       {
@@ -292,7 +448,19 @@
     "asset_pattern": "AccountSync-*.zip",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Link your Nintendo Account offline.",
+    "descriptions": {
+      "de": "Verbinden Sie Ihr Nintendo-Konto offline.",
+      "en": "Link your Nintendo Account offline.",
+      "es": "Vincula tu cuenta de Nintendo sin conexión.",
+      "fr": "Liez votre compte Nintendo hors ligne.",
+      "id": "Menautkan akun Nintendo secara offline.",
+      "it": "Collega il tuo account Nintendo offline.",
+      "ja": "Nintendoアカウントをオフラインでリンクします。",
+      "ko": "Nintendo 계정을 오프라인으로 연결하세요.",
+      "pt": "Vincule sua conta Nintendo offline.",
+      "ru": "Свяжите свою учетную запись Nintendo в автономном режиме.",
+      "zh": "离线链接您的Nintendo帐户。"
+    },
     "name": "Linkalho",
     "processing_steps": [
       {
@@ -314,7 +482,19 @@
     "asset_pattern": "Lockpick_RCM.bin",
     "category": "Payloads",
     "default": false,
-    "description": "Tool to dump your console's unique keys.",
+    "descriptions": {
+      "de": "Werkzeug zum Auslesen der eindeutigen Schlüssel Ihrer Konsole.",
+      "en": "Tool to dump your console's unique keys.",
+      "es": "Herramienta para extraer las claves únicas de tu consola.",
+      "fr": "Outil pour extraire les clés uniques de votre console.",
+      "id": "Payload untuk dump key unik dari konsol.",
+      "it": "Strumento per estrarre le chiavi uniche della tua console.",
+      "ja": "コンソールのユニークなキーをダンプするツール。",
+      "ko": "콘솔의 고유 키를 덤프하는 도구.",
+      "pt": "Ferramenta para extrair as chaves únicas do seu console.",
+      "ru": "Инструмент для извлечения уникальных ключей вашей консоли.",
+      "zh": "用于提取您控制台唯一密钥的工具。"
+    },
     "name": "Lockpick_RCM",
     "processing_steps": [
       {
@@ -335,7 +515,19 @@
     "asset_pattern": "MissionControl-*.zip",
     "category": "Patches",
     "default": false,
-    "description": "Use other console controllers on your Switch.",
+    "descriptions": {
+      "de": "Verwenden Sie Controller anderer Konsolen auf Ihrer Switch.",
+      "en": "Use other console controllers on your Switch.",
+      "es": "Usa controladores de otras consolas en tu Switch.",
+      "fr": "Utilisez des manettes d'autres consoles sur votre Switch.",
+      "id": "Memakai kontroler dari konsol lain di Switch.",
+      "it": "Usa i controller di altre console sul tuo Switch.",
+      "ja": "他のコンソールのコントローラーをSwitchで使用します。",
+      "ko": "스위치에서 다른 콘솔의 컨트롤러를 사용하세요.",
+      "pt": "Use controladores de outros consoles no seu Switch.",
+      "ru": "Используйте контроллеры других консолей на вашем Switch.",
+      "zh": "在您的Switch上使用其他控制台的控制器。"
+    },
     "name": "MissionControl",
     "processing_steps": [
       {
@@ -355,7 +547,19 @@
     "asset_pattern": "nx-ovlloader.zip",
     "category": "Patches",
     "default": false,
-    "description": "Host process for loading Switch overlay OVLs (NROs)",
+    "descriptions": {
+      "de": "Host-Prozess zum Laden von Switch-Overlay-OVLs (NROs).",
+      "en": "Host process for loading Switch overlay OVLs (NROs).",
+      "es": "Proceso host para cargar superposiciones OVL (NRO) de Switch.",
+      "fr": "Processus hôte pour charger les superpositions OVL (NRO) de Switch.",
+      "id": "Sysmodule untuk menjalankan Tesla overlay.",
+      "it": "Processo host per caricare overlay OVL (NRO) di Switch.",
+      "ja": "SwitchのオーバーレイOVL（NRO）をロードするためのホストプロセス。",
+      "ko": "스위치 오버레이 OVL(NRO)을 로드하기 위한 호스트 프로세스.",
+      "pt": "Processo host para carregar sobreposições OVL (NRO) do Switch.",
+      "ru": "Хост-процесс для загрузки оверлеев OVL (NRO) для Switch.",
+      "zh": "用于加载Switch覆盖OVL（NRO）的主机进程。"
+    },
     "name": "nx-ovlloader",
     "processing_steps": [
       {
@@ -375,7 +579,19 @@
     "asset_pattern": "NX-Shell.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "A multipurpose file manager.",
+    "descriptions": {
+      "de": "Ein vielseitiger Dateimanager.",
+      "en": "A multipurpose file manager.",
+      "es": "Un administrador de archivos multipropósito.",
+      "fr": "Un gestionnaire de fichiers polyvalent.",
+      "id": "File manager serbaguna.",
+      "it": "Un gestore di file multiuso.",
+      "ja": "多目的ファイルマネージャー。",
+      "ko": "다목적 파일 관리자.",
+      "pt": "Um gerenciador de arquivos multiuso.",
+      "ru": "Многоцелевой файловый менеджер.",
+      "zh": "多用途文件管理器。"
+    },
     "name": "NX-Shell",
     "processing_steps": [
       {
@@ -396,7 +612,19 @@
     "asset_pattern": "prodinfo_gen.bin",
     "category": "Payloads",
     "default": false,
-    "description": "A payload to generate prod.info.",
+    "descriptions": {
+      "de": "Ein Payload zur Generierung von prod.info.",
+      "en": "A payload to generate prod.info.",
+      "es": "Un payload para generar prod.info.",
+      "fr": "Un payload pour générer prod.info.",
+      "id": "Payload untuk membuat prod.info.",
+      "it": "Un payload per generare prod.info.",
+      "ja": "prod.infoを生成するペイロード。",
+      "ko": "prod.info를 생성하는 페이로드.",
+      "pt": "Um payload para gerar prod.info.",
+      "ru": "Пейлоад для генерации prod.info.",
+      "zh": "用于生成prod.info的负载。"
+    },
     "name": "Prodinfo_gen",
     "processing_steps": [
       {
@@ -417,7 +645,19 @@
     "asset_pattern": "Quick-Reboot.nro",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Reboot to payloads from the homebrew menu.",
+    "descriptions": {
+      "de": "Neustart zu Payloads aus dem Homebrew-Menü.",
+      "en": "Reboot to payloads from the homebrew menu.",
+      "es": "Reinicia a payloads desde el menú homebrew.",
+      "fr": "Redémarrez vers des payloads depuis le menu homebrew.",
+      "id": "Reboot ke payload dari menu homebrew.",
+      "it": "Riavvia ai payload dal menu homebrew.",
+      "ja": "ホームブリューからペイロードにリブートします。",
+      "ko": "홈브류 메뉴에서 페이로드로 재부팅합니다.",
+      "pt": "Reiniciar para payloads a partir do menu homebrew.",
+      "ru": "Перезагрузка в пейлоады из меню homebrew.",
+      "zh": "从自制菜单重启到负载。"
+    },
     "name": "Quick-Reboot (App)",
     "processing_steps": [
       {
@@ -438,7 +678,19 @@
     "asset_pattern": "Quick-Reboot.ovl",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Reboot to payloads from the Tesla.",
+    "descriptions": {
+      "de": "Neustart zu Payloads aus Tesla.",
+      "en": "Reboot to payloads from the Tesla.",
+      "es": "Reinicia a payloads desde Tesla.",
+      "fr": "Redémarrez vers des payloads depuis Tesla.",
+      "id": "Reboot ke payload dari Tesla.",
+      "it": "Riavvia ai payload da Tesla.",
+      "ja": "Teslaからペイロードにリブートします。",
+      "ko": "Tesla에서 페이로드로 재부팅합니다.",
+      "pt": "Reiniciar para payloads a partir do Tesla.",
+      "ru": "Перезагрузка в пейлоады из Tesla.",
+      "zh": "从Tesla重启到负载。"
+    },
     "name": "Quick-Reboot overlay",
     "processing_steps": [
       {
@@ -459,7 +711,19 @@
     "asset_pattern": "quickntp-*.zip",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Tesla overlay to sync system clock with an NTP server.",
+    "descriptions": {
+      "de": "Tesla-Overlay zur Synchronisierung der Systemuhr mit einem NTP-Server.",
+      "en": "Tesla overlay to sync system clock with an NTP server.",
+      "es": "Superposición de Tesla para sincronizar el reloj del sistema con un servidor NTP.",
+      "fr": "Superposition Tesla pour synchroniser l'horloge système avec un serveur NTP.",
+      "id": "Tesla overlay untuk sinkronisasi jam dengan server NTP.",
+      "it": "Overlay Tesla per sincronizzare l'orologio di sistema con un server NTP.",
+      "ja": "システムクロックをNTPサーバーと同期するためのTeslaオーバーレイ。",
+      "ko": "시스템 시계를 NTP 서버와 동기화하는 Tesla 오버레이.",
+      "pt": "Sobreposição Tesla para sincronizar o relógio do sistema com um servidor NTP.",
+      "ru": "Оверлей Tesla для синхронизации системных часов с сервером NTP.",
+      "zh": "用于将系统时钟与NTP服务器同步的Tesla覆盖层。"
+    },
     "name": "QuickNTP",
     "processing_steps": [
       {
@@ -479,7 +743,19 @@
     "asset_pattern": "SaltyNX-*.zip",
     "category": "Patches",
     "default": false,
-    "description": "A salt-based plugin loader for mods.",
+    "descriptions": {
+      "de": "Ein salt-basierter Plugin-Loader für Mods.",
+      "en": "A salt-based plugin loader for mods.",
+      "es": "Un cargador de plugins basado en salt para mods.",
+      "fr": "Un chargeur de plugins basé sur salt pour les mods.",
+      "id": "Plugin loader berbasis salt untuk mod.",
+      "it": "Un caricatore di plugin basato su salt per mod.",
+      "ja": "MOD用のソルトベースのプラグインローダー。",
+      "ko": "모드용 소금 기반 플러그인 로더.",
+      "pt": "Um carregador de plugins baseado em salt para mods.",
+      "ru": "Загрузчик плагинов на основе salt для модов.",
+      "zh": "用于模组的基于salt的插件加载器。"
+    },
     "name": "SaltyNX",
     "processing_steps": [
       {
@@ -499,7 +775,19 @@
     "asset_pattern": "SystemEnhancer-*.zip",
     "category": "Essential",
     "default": false,
-    "description": "Enables unofficial applications.",
+    "descriptions": {
+      "de": "Ermöglicht inoffizielle Anwendungen.",
+      "en": "Enables unofficial applications.",
+      "es": "Permite aplicaciones no oficiales.",
+      "fr": "Permet des applications non officielles.",
+      "id": "Mengaktifkan aplikasi tidak resmi.",
+      "it": "Abilita applicazioni non ufficiali.",
+      "ja": "非公式アプリケーションを有効にします。",
+      "ko": "비공식 응용 프로그램을 활성화합니다.",
+      "pt": "Permite aplicativos não oficiais.",
+      "ru": "Включает неофициальные приложения.",
+      "zh": "启用非官方应用程序。"
+    },
     "name": "Sigpatches",
     "processing_steps": [
       {
@@ -519,7 +807,19 @@
     "asset_pattern": "sphaira.zip",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "A minimal reimplementation of the barrel.",
+    "descriptions": {
+      "de": "Eine minimale Neuimplementierung des Barrel.",
+      "en": "A minimal reimplementation of the barrel.",
+      "es": "Una reimplementación mínima del barrel.",
+      "fr": "Une réimplémentation minimale du barrel.",
+      "id": "Implementasi ulang minimalis dari Tinfoil.",
+      "it": "Una reimplementazione minima del barrel.",
+      "ja": "バレルの最小限の再実装。",
+      "ko": "배럴의 최소한의 재구현.",
+      "pt": "Uma reimplementação mínima do barrel.",
+      "ru": "Минимальная перереализация barrel.",
+      "zh": "barrel的最小化重新实现。"
+    },
     "name": "Sphaira",
     "processing_steps": [
       {
@@ -539,7 +839,19 @@
     "asset_pattern": "Status-Monitor-Overlay.zip",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Displays FPS, temps, and clock speeds.",
+    "descriptions": {
+      "de": "Zeigt FPS, Temperaturen und Taktraten an.",
+      "en": "Displays FPS, temps, and clock speeds.",
+      "es": "Muestra FPS, temperaturas y velocidades de reloj.",
+      "fr": "Affiche les FPS, les températures et les vitesses d'horloge.",
+      "id": "Menampilkan FPS, suhu, dan kecepatan clock.",
+      "it": "Mostra FPS, temperature e velocità di clock.",
+      "ja": "FPS、温度、クロック速度を表示します。",
+      "ko": "FPS, 온도, 클럭 속도를 표시합니다.",
+      "pt": "Exibe FPS, temperaturas e velocidades de clock.",
+      "ru": "Отображает FPS, температуры и тактовые частоты.",
+      "zh": "显示FPS、温度和时钟速度。"
+    },
     "name": "Status Monitor Overlay",
     "processing_steps": [
       {
@@ -559,7 +871,19 @@
     "asset_pattern": "sys-clk-*.zip",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Sysmodule for overclocking.",
+    "descriptions": {
+      "de": "Systemmodul für Overclocking.",
+      "en": "Sysmodule for overclocking.",
+      "es": "Módulo del sistema para overclocking.",
+      "fr": "Module système pour l'overclocking.",
+      "id": "Sysmodule untuk overclocking.",
+      "it": "Modulo di sistema per l'overclocking.",
+      "ja": "オーバークロック用のシステムモジュール。",
+      "ko": "오버클러킹을 위한 시스템 모듈.",
+      "pt": "Módulo do sistema para overclocking.",
+      "ru": "Системный модуль для разгона.",
+      "zh": "用于超频的系统模块。"
+    },
     "name": "sys-clk",
     "processing_steps": [
       {
@@ -583,7 +907,19 @@
     "asset_pattern": "sys-patch.zip",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "A sysmodule to apply runtime code patches.",
+    "descriptions": {
+      "de": "Ein Systemmodul zum Anwenden von Laufzeit-Code-Patches.",
+      "en": "A sysmodule to apply runtime code patches.",
+      "es": "Un módulo del sistema para aplicar parches de código en tiempo de ejecución.",
+      "fr": "Un module système pour appliquer des correctifs de code en temps réel.",
+      "id": "Sysmodule untuk menerapkan code patch saat runtime.",
+      "it": "Un modulo di sistema per applicare patch di codice in tempo reale.",
+      "ja": "実行時にコードパッチを適用するシステムモジュール。",
+      "ko": "런타임 코드 패치를 적용하기 위한 시스템 모듈.",
+      "pt": "Um módulo do sistema para aplicar patches de código em tempo de execução.",
+      "ru": "Системный модуль для применения патчей кода во время выполнения.",
+      "zh": "用于应用运行时代码补丁的系统模块。"
+    },
     "name": "Sys-patch",
     "processing_steps": [
       {
@@ -603,7 +939,19 @@
     "asset_pattern": "ovlSysmodules.ovl",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "Tesla overlay for managing sysmodules.",
+    "descriptions": {
+      "de": "Tesla-Overlay zur Verwaltung von Systemmodulen.",
+      "en": "Tesla overlay for managing sysmodules.",
+      "es": "Superposición de Tesla para gestionar módulos del sistema.",
+      "fr": "Superposition Tesla pour gérer les modules système.",
+      "id": "Tesla overlay untuk mengelola sysmodule.",
+      "it": "Overlay Tesla per gestire i moduli di sistema.",
+      "ja": "システムモジュールを管理するためのTeslaオーバーレイ。",
+      "ko": "시스템 모듈 관리를 위한 Tesla 오버레이.",
+      "pt": "Sobreposição Tesla para gerenciar módulos do sistema.",
+      "ru": "Оверлей Tesla для управления системными модулями.",
+      "zh": "用于管理系统模块的Tesla覆盖层。"
+    },
     "name": "Sysmodules Overlay",
     "processing_steps": [
       {
@@ -624,7 +972,19 @@
     "asset_pattern": "TegraExplorer.bin",
     "category": "Payloads",
     "default": false,
-    "description": "A payload-based file explorer.",
+    "descriptions": {
+      "de": "Ein payload-basierter Datei-Explorer.",
+      "en": "A payload-based file explorer.",
+      "es": "Un explorador de archivos basado en payload.",
+      "fr": "Un explorateur de fichiers basé sur payload.",
+      "id": "File explorer berbasis payload.",
+      "it": "Un esploratore di file basato su payload.",
+      "ja": "ペイロードベースのファイルエクスプローラー。",
+      "ko": "페이로드 기반 파일 탐색기.",
+      "pt": "Um explorador de arquivos baseado em payload.",
+      "ru": "Файловый менеджер на основе пейлоада.",
+      "zh": "基于负载的文件资源管理器。"
+    },
     "name": "TegraExplorer",
     "processing_steps": [
       {
@@ -645,7 +1005,19 @@
     "asset_pattern": "PackageManager-*-v*.zip",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Title manager. Uses less memory.",
+    "descriptions": {
+      "de": "Titel-Manager. Verwendet weniger Speicher.",
+      "en": "Title manager. Uses less memory.",
+      "es": "Gestor de títulos. Usa menos memoria.",
+      "fr": "Gestionnaire de titres. Utilise moins de mémoire.",
+      "id": "Title manager. Memakai lebih sedikit memori.",
+      "it": "Gestore di titoli. Usa meno memoria.",
+      "ja": "タイトルマネージャー。メモリ使用量が少ない。",
+      "ko": "타이틀 관리자. 메모리를 적게 사용합니다.",
+      "pt": "Gerenciador de títulos. Usa menos memória.",
+      "ru": "Менеджер заголовков. Использует меньше памяти.",
+      "zh": "标题管理器。使用更少的内存。"
+    },
     "name": "Tinfoil Applet version",
     "processing_steps": [
       {
@@ -665,7 +1037,19 @@
     "asset_pattern": "PackageManager-*-v*.nsp",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "Title manager self-installer.",
+    "descriptions": {
+      "de": "Selbstinstallierender Titel-Manager.",
+      "en": "Title manager self-installer.",
+      "es": "Instalador automático de gestor de títulos.",
+      "fr": "Auto-installateur de gestionnaire de titres.",
+      "id": "Self-installer untuk title manager.",
+      "it": "Auto-installatore di gestore di titoli.",
+      "ja": "タイトルマネージャーの自己インストーラー。",
+      "ko": "타이틀 관리자 자동 설치 프로그램.",
+      "pt": "Auto-instalador de gerenciador de títulos.",
+      "ru": "Самоустанавливающийся менеджер заголовков.",
+      "zh": "标题管理器自安装程序。"
+    },
     "name": "Tinfoil NSP version",
     "processing_steps": [
       {
@@ -686,7 +1070,19 @@
     "asset_pattern": "Tinwoo-Installer.zip",
     "category": "Homebrew Apps",
     "default": false,
-    "description": "An open-source NSP installer.",
+    "descriptions": {
+      "de": "Ein Open-Source-NSP-Installer.",
+      "en": "An open-source NSP installer.",
+      "es": "Un instalador NSP de código abierto.",
+      "fr": "Un installateur NSP open-source.",
+      "id": "Installer NSP open-source.",
+      "it": "Un installatore NSP open-source.",
+      "ja": "オープンソースのNSPインストーラー。",
+      "ko": "오픈 소스 NSP 설치 프로그램.",
+      "pt": "Um instalador NSP de código aberto.",
+      "ru": "Установщик NSP с открытым исходным кодом.",
+      "zh": "开源NSP安装程序。"
+    },
     "name": "Tinwoo Installer",
     "processing_steps": [
       {
@@ -706,7 +1102,19 @@
     "asset_pattern": "ovlmenu.ovl",
     "category": "Tesla Overlays",
     "default": false,
-    "description": "A new Tesla menu reimplementation.",
+    "descriptions": {
+      "de": "Eine neue Neuimplementierung des Tesla-Menüs.",
+      "en": "A new Tesla menu reimplementation.",
+      "es": "Una nueva reimplementación del menú Tesla.",
+      "fr": "Une nouvelle réimplémentation du menu Tesla.",
+      "id": "Implementasi ulang baru untuk menu Tesla.",
+      "it": "Una nuova reimplementazione del menu Tesla.",
+      "ja": "Teslaメニューの新しい再実装。",
+      "ko": "Tesla 메뉴의 새로운 재구현.",
+      "pt": "Uma nova reimplementação do menu Tesla.",
+      "ru": "Новая перереализация меню Tesla.",
+      "zh": "Tesla菜单的新重新实现。"
+    },
     "name": "Ultrahand Overlay",
     "processing_steps": [
       {
