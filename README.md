@@ -27,6 +27,7 @@ The script automatically installs required packages if they're missing:
 ### Required Files
 - `components.json` - Component definitions (can be created via the editor)
 - `skeleton.zip` - Base structure for HATS packs
+- `languages.zip` - Base language pack
 
 ## Installation
 
@@ -35,7 +36,8 @@ The script automatically installs required packages if they're missing:
    - `hatskit.py` (for Python) OR `HATSKit.exe` (for Windows)
    - `skeleton.zip` 
    - `components.json`
-2. **Place all files in the same folder**
+   - `languages.zip`
+2. **Place all files in the same folder, extract the languages.zip**
 3. **Run the tool:**
    - Python: `python hatskit.py`
    - Windows: Double-click `HATSKit.exe`
