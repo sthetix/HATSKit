@@ -51,6 +51,7 @@ The script automatically installs required packages if they're missing:
 2. Build the executable:
    ```bash
    pyinstaller --onefile --name HATSkit --noupx --clean --add-data "components.json;." --add-data "skeleton.zip;." --add-data "languages;languages" --icon icon.ico hatskit.py
+   pyinstaller --onefile --windowed --name "Language Editor" --noupx --hidden-import googletrans --hidden-import httpx --icon lang.ico translate_json.py
    ```
 
 3. The executable will be created in the `dist/` folder
