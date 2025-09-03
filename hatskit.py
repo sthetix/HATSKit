@@ -746,8 +746,8 @@ def edit_components_menu():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         console.print(Panel(f"[bold white]{get_text('component_editor_title')}[/]",
-                           style="bold magenta", subtitle=get_text('component_editor_subtitle'),
-                           subtitle_align="right"))
+                            style="bold magenta", subtitle=get_text('component_editor_subtitle'),
+                            subtitle_align="right"))
         choice = questionary.select(
             get_text('editor_action_prompt'),
             choices=[
@@ -803,8 +803,8 @@ def run_builder():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         console.print(Panel(f"[bold white]{get_text('builder_title', VERSION=VERSION)}[/]",
-                              style="bold blue", subtitle=get_text('builder_subtitle'),
-                              subtitle_align="right"))
+                                style="bold blue", subtitle=get_text('builder_subtitle'),
+                                subtitle_align="right"))
 
         if args.clear_cache and os.path.exists(os.path.join(base_path, CACHE_FILE)):
             os.remove(os.path.join(base_path, CACHE_FILE))
@@ -845,6 +845,9 @@ def run_builder():
 
         categories = sorted(list(set(all_components[c]['category'] for c in all_components)))
         choices = []
+        last_build = load_last_build()
+        last_components = last_build.get('components', {})
+
         for category in categories:
             choices.append(questionary.Separator(f"--- {category.upper()} ---"))
             components_in_category = {k: v for k, v in all_components.items() if v['category'] == category}
@@ -852,10 +855,25 @@ def run_builder():
                 version = comp.get('asset_info', {}).get('version', 'N/A')
                 description = get_component_description(comp, config.get('language', 'en'))
                 short_description = (description[:37] + '...') if len(description) > 40 else description
-                title = f"{comp['name']} ({version}) - {short_description}"
+                
+                update_indicator = ""
+                last_comp_info = last_components.get(id)
+                if last_comp_info:
+                    # *** FIXED CODE BLOCK STARTS HERE ***
+                    last_version = None
+                    # Handle both old format (string) and new format (dict) from last_build.json
+                    if isinstance(last_comp_info, dict):
+                        last_version = last_comp_info.get('version')
+                    else:
+                        last_version = last_comp_info
+                    # *** FIXED CODE BLOCK ENDS HERE ***
+
+                    if last_version and version != 'N/A' and last_version != version:
+                        update_indicator = " *NEW*"
+
+                title = f"{comp['name']}{update_indicator} ({version}) - {short_description}"
                 choices.append(questionary.Choice(title=title, value=id, checked=comp.get('default', False)))
             
-
         while True:
             selected_ids = questionary.checkbox(
                 get_text('select_components'),
@@ -926,23 +944,23 @@ def run_builder():
                 changes.append(f"* {comp_name}: Removed (was {comp_version})")
 
         if not changes and last_build.get('content_hash') == content_hash:
-             last_filename = last_build.get('filename')
-             if last_filename and os.path.exists(os.path.join(base_path, last_filename)):
-                console.print(f"[yellow]{get_text('no_updates', filename=last_filename)}[/]")
-                choice = questionary.select(
-                    get_text('no_updates_prompt'),
-                    choices=[
-                        get_text('skip_and_return'),
-                        get_text('rebuild_anyway'),
-                        get_text('return_to_builder')
-                    ], style=custom_style, instruction=get_text('menu_instruction')
-                ).ask()
-                if choice == get_text('skip_and_return'):
-                    console.print(f"[yellow]{get_text('build_skipped')}[/]")
-                    return
-                elif choice == get_text('return_to_builder'):
-                    console.print(f"[yellow]{get_text('return_to_builder')}[/]")
-                    continue
+                last_filename = last_build.get('filename')
+                if last_filename and os.path.exists(os.path.join(base_path, last_filename)):
+                    console.print(f"[yellow]{get_text('no_updates', filename=last_filename)}[/]")
+                    choice = questionary.select(
+                        get_text('no_updates_prompt'),
+                        choices=[
+                            get_text('skip_and_return'),
+                            get_text('rebuild_anyway'),
+                            get_text('return_to_builder')
+                        ], style=custom_style, instruction=get_text('menu_instruction')
+                    ).ask()
+                    if choice == get_text('skip_and_return'):
+                        console.print(f"[yellow]{get_text('build_skipped')}[/]")
+                        return
+                    elif choice == get_text('return_to_builder'):
+                        console.print(f"[yellow]{get_text('return_to_builder')}[/]")
+                        continue
 
         os.system('cls' if os.name == 'nt' else 'clear')
         summary_table = Table(title=f"[bold green]{get_text('pack_summary')}[/]")
@@ -1093,8 +1111,8 @@ def main():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         console.print(Panel(f"[bold white]{get_text('welcome_title', VERSION=VERSION)}[/]",
-                              style="bold blue", subtitle=get_text('welcome_subtitle'),
-                              subtitle_align="right"))
+                                style="bold blue", subtitle=get_text('welcome_subtitle'),
+                                subtitle_align="right"))
         choices = [
             get_text('main_menu_builder'),
             get_text('main_menu_editor'),
