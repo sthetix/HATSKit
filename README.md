@@ -222,3 +222,16 @@ This tool is provided as-is for educational and personal use. Please respect the
 - Verify your `components.json` syntax with a JSON validator
 - Ensure all required files are present
 - Test with a GitHub PAT if experiencing rate limits
+
+
+---
+
+### Support My Work
+
+If you find this project useful, please consider supporting me by buying me a coffee!
+
+<a href="https://www.buymeacoffee.com/sthetixofficial" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
+</a>
+
+
